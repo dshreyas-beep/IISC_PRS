@@ -1,0 +1,501 @@
+Incident-id,Date(dd/mm/yr),Animal,village,District,State,Victim age,Victim outcome,Incident details,lat,lon
+SIM-1000,17/05/2020,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,49,Injured,Simulated data based on regional conflict probability,19.04952,72.92994
+SIM-1001,18/06/2022,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,43,Injured,Simulated data based on regional conflict probability,12.39489,75.77375
+SIM-1002,21/09/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,60,Injured,Simulated data based on regional conflict probability,11.03406,76.96648
+SIM-1003,16/08/2021,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,25,Injured,Simulated data based on regional conflict probability,19.06106,72.95006
+SIM-1004,08/02/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,68,Injured,Simulated data based on regional conflict probability,12.40538,75.81356
+SIM-1005,11/03/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,33,Injured,Simulated data based on regional conflict probability,26.16798,91.80335
+SIM-1006,29/09/2024,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,56,Injured,Simulated data based on regional conflict probability,20.0485,79.20883
+SIM-1007,29/10/2021,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,48,Injured,Simulated data based on regional conflict probability,21.85788,80.12384
+SIM-1008,16/11/2020,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,64,Deceased,Simulated data based on regional conflict probability,19.96661,79.29805
+SIM-1009,26/05/2024,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,37,Injured,Simulated data based on regional conflict probability,20.68937,85.51198
+SIM-1010,13/02/2021,Elephant,Forest Fringe (Simulated),Angul,Odisha,26,Deceased,Simulated data based on regional conflict probability,20.86539,85.15147
+SIM-1011,19/11/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,34,Injured,Simulated data based on regional conflict probability,26.16435,91.69494
+SIM-1012,23/05/2023,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,39,Injured,Simulated data based on regional conflict probability,15.30177,76.225
+SIM-1013,02/12/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,50,Deceased,Simulated data based on regional conflict probability,26.16536,91.67874
+SIM-1014,08/09/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,54,Injured,Simulated data based on regional conflict probability,15.27813,76.11418
+SIM-1015,03/07/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,47,Deceased,Simulated data based on regional conflict probability,10.98574,77.04547
+SIM-1016,19/11/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,67,Injured,Simulated data based on regional conflict probability,19.04442,72.79049
+SIM-1017,14/04/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,48,Deceased,Simulated data based on regional conflict probability,11.03377,76.88613
+SIM-1018,26/09/2022,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,51,Deceased,Simulated data based on regional conflict probability,12.41258,75.69295
+SIM-1019,11/07/2020,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,59,Deceased,Simulated data based on regional conflict probability,12.47009,76.96912
+SIM-1020,26/12/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,36,Deceased,Simulated data based on regional conflict probability,12.26105,76.57282
+SIM-1021,24/04/2020,Elephant,Forest Fringe (Simulated),Angul,Odisha,41,Deceased,Simulated data based on regional conflict probability,20.87826,85.09787
+SIM-1022,22/09/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,65,Deceased,Simulated data based on regional conflict probability,26.08005,91.82836
+SIM-1023,20/05/2024,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,35,Injured,Simulated data based on regional conflict probability,15.42053,76.24066
+SIM-1024,01/04/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,70,Injured,Simulated data based on regional conflict probability,15.38102,76.16132
+SIM-1025,26/11/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,32,Deceased,Simulated data based on regional conflict probability,12.31899,76.59191
+SIM-1026,24/05/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,56,Deceased,Simulated data based on regional conflict probability,11.09696,77.01111
+SIM-1027,16/11/2022,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,27,Injured,Simulated data based on regional conflict probability,24.39199,72.19386
+SIM-1028,19/05/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,43,Injured,Simulated data based on regional conflict probability,26.09871,91.81772
+SIM-1029,25/09/2020,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,58,Injured,Simulated data based on regional conflict probability,12.61558,76.80729
+SIM-1030,10/08/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,26,Injured,Simulated data based on regional conflict probability,12.21237,76.57313
+SIM-1031,22/04/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,40,Injured,Simulated data based on regional conflict probability,26.08471,91.7644
+SIM-1032,02/05/2024,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,35,Injured,Simulated data based on regional conflict probability,29.46405,79.45851
+SIM-1033,16/11/2020,Elephant,Forest Fringe (Simulated),Angul,Odisha,58,Injured,Simulated data based on regional conflict probability,20.73915,85.18574
+SIM-1034,30/05/2021,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,43,Injured,Simulated data based on regional conflict probability,29.43099,79.50229
+SIM-1035,18/03/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,27,Injured,Simulated data based on regional conflict probability,12.55025,76.83767
+SIM-1036,04/08/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,62,Deceased,Simulated data based on regional conflict probability,12.32001,75.72258
+SIM-1037,31/12/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,66,Deceased,Simulated data based on regional conflict probability,12.25107,76.63314
+SIM-1038,14/09/2024,Elephant,Forest Fringe (Simulated),Angul,Odisha,53,Deceased,Simulated data based on regional conflict probability,20.88207,85.19345
+SIM-1039,14/08/2021,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,62,Deceased,Simulated data based on regional conflict probability,20.70516,85.63578
+SIM-1040,25/02/2020,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,20,Injured,Simulated data based on regional conflict probability,12.48934,76.82244
+SIM-1041,28/01/2023,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,44,Injured,Simulated data based on regional conflict probability,19.95058,79.37547
+SIM-1042,25/07/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,48,Injured,Simulated data based on regional conflict probability,29.35815,79.39232
+SIM-1043,15/12/2024,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,46,Injured,Simulated data based on regional conflict probability,29.30846,79.53032
+SIM-1044,02/06/2023,Elephant,Forest Fringe (Simulated),Angul,Odisha,60,Injured,Simulated data based on regional conflict probability,20.84611,85.13357
+SIM-1045,10/02/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,60,Deceased,Simulated data based on regional conflict probability,12.28503,76.65348
+SIM-1046,13/10/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,43,Injured,Simulated data based on regional conflict probability,26.16779,91.71966
+SIM-1047,20/09/2020,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,29,Injured,Simulated data based on regional conflict probability,19.14695,72.87918
+SIM-1048,05/05/2024,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,42,Injured,Simulated data based on regional conflict probability,19.92833,79.24528
+SIM-1049,11/11/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,33,Injured,Simulated data based on regional conflict probability,12.19003,76.54125
+SIM-1050,23/09/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,66,Injured,Simulated data based on regional conflict probability,12.42526,75.71956
+SIM-1051,09/03/2024,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,18,Injured,Simulated data based on regional conflict probability,12.43189,76.93054
+SIM-1052,21/07/2022,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,23,Injured,Simulated data based on regional conflict probability,15.39767,76.14754
+SIM-1053,11/02/2024,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,27,Injured,Simulated data based on regional conflict probability,15.36159,76.22342
+SIM-1054,02/01/2021,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,29,Injured,Simulated data based on regional conflict probability,12.27794,76.72545
+SIM-1055,26/01/2024,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,39,Injured,Simulated data based on regional conflict probability,12.57085,76.96818
+SIM-1056,23/03/2024,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,29,Injured,Simulated data based on regional conflict probability,19.89194,79.21185
+SIM-1057,25/06/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,18,Injured,Simulated data based on regional conflict probability,26.06486,91.66405
+SIM-1058,15/01/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,53,Injured,Simulated data based on regional conflict probability,11.073,76.96636
+SIM-1059,06/03/2021,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,42,Injured,Simulated data based on regional conflict probability,24.23574,72.18618
+SIM-1060,25/11/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,65,Deceased,Simulated data based on regional conflict probability,12.29541,76.60369
+SIM-1061,21/02/2022,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,26,Injured,Simulated data based on regional conflict probability,19.97822,79.25159
+SIM-1062,17/05/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,35,Injured,Simulated data based on regional conflict probability,11.0822,77.0378
+SIM-1063,06/08/2023,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,40,Injured,Simulated data based on regional conflict probability,15.25662,76.12471
+SIM-1064,05/07/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,53,Injured,Simulated data based on regional conflict probability,11.03641,76.95043
+SIM-1065,18/08/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,62,Injured,Simulated data based on regional conflict probability,12.37107,76.66522
+SIM-1066,08/02/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,45,Injured,Simulated data based on regional conflict probability,12.5196,76.90373
+SIM-1067,07/07/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,51,Injured,Simulated data based on regional conflict probability,19.14869,72.82732
+SIM-1068,10/08/2022,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,65,Injured,Simulated data based on regional conflict probability,20.60052,85.65523
+SIM-1069,26/05/2020,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,70,Injured,Simulated data based on regional conflict probability,24.31523,72.16991
+SIM-1070,27/10/2022,Elephant,Forest Fringe (Simulated),Angul,Odisha,55,Deceased,Simulated data based on regional conflict probability,20.80009,85.18254
+SIM-1071,18/04/2023,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,43,Injured,Simulated data based on regional conflict probability,20.63433,85.66198
+SIM-1072,10/04/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,54,Injured,Simulated data based on regional conflict probability,19.05181,72.95477
+SIM-1073,21/12/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,61,Deceased,Simulated data based on regional conflict probability,12.2286,76.58801
+SIM-1074,08/02/2020,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,69,Deceased,Simulated data based on regional conflict probability,19.86983,79.32933
+SIM-1075,08/05/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,68,Injured,Simulated data based on regional conflict probability,12.44222,75.79703
+SIM-1076,29/10/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,39,Deceased,Simulated data based on regional conflict probability,11.09431,76.98434
+SIM-1077,10/01/2023,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,70,Deceased,Simulated data based on regional conflict probability,29.4616,79.43684
+SIM-1078,23/04/2021,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,46,Deceased,Simulated data based on regional conflict probability,24.25454,72.19842
+SIM-1079,04/09/2020,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,30,Deceased,Simulated data based on regional conflict probability,20.00422,79.26162
+SIM-1080,10/07/2021,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,57,Deceased,Simulated data based on regional conflict probability,19.95051,79.38872
+SIM-1081,26/09/2023,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,29,Injured,Simulated data based on regional conflict probability,20.61778,85.66586
+SIM-1082,01/09/2020,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,63,Injured,Simulated data based on regional conflict probability,19.12733,72.79426
+SIM-1083,13/12/2023,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,20,Injured,Simulated data based on regional conflict probability,21.8857,80.22874
+SIM-1084,24/07/2022,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,33,Injured,Simulated data based on regional conflict probability,12.42856,76.81875
+SIM-1085,04/04/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,44,Injured,Simulated data based on regional conflict probability,26.04752,91.74295
+SIM-1086,14/08/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,64,Deceased,Simulated data based on regional conflict probability,11.1066,77.04835
+SIM-1087,01/01/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,36,Injured,Simulated data based on regional conflict probability,26.16929,91.68394
+SIM-1088,28/06/2020,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,68,Injured,Simulated data based on regional conflict probability,19.99314,79.22494
+SIM-1089,05/05/2020,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,49,Deceased,Simulated data based on regional conflict probability,29.44957,79.46961
+SIM-1090,01/01/2024,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,65,Injured,Simulated data based on regional conflict probability,29.35644,79.50452
+SIM-1091,08/01/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,30,Injured,Simulated data based on regional conflict probability,26.16814,91.80381
+SIM-1092,05/02/2022,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,33,Deceased,Simulated data based on regional conflict probability,19.98116,79.2194
+SIM-1093,14/10/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,19,Deceased,Simulated data based on regional conflict probability,10.93089,77.01538
+SIM-1094,15/05/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,34,Deceased,Simulated data based on regional conflict probability,10.91149,76.88929
+SIM-1095,12/08/2023,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,68,Injured,Simulated data based on regional conflict probability,19.94189,79.34084
+SIM-1096,19/04/2022,Leopard,Forest Fringe (Simulated),Guwahati,Assam,24,Deceased,Simulated data based on regional conflict probability,26.14995,91.74875
+SIM-1097,18/07/2024,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,27,Injured,Simulated data based on regional conflict probability,12.48651,75.67391
+SIM-1098,21/07/2021,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,42,Injured,Simulated data based on regional conflict probability,20.72378,85.52728
+SIM-1099,20/02/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,27,Deceased,Simulated data based on regional conflict probability,12.21175,76.66184
+SIM-1100,06/08/2022,Leopard,Forest Fringe (Simulated),Guwahati,Assam,68,Deceased,Simulated data based on regional conflict probability,26.21361,91.76918
+SIM-1101,07/12/2024,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,28,Deceased,Simulated data based on regional conflict probability,12.42038,75.6369
+SIM-1102,11/11/2020,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,64,Injured,Simulated data based on regional conflict probability,18.97311,72.91267
+SIM-1103,23/02/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,50,Deceased,Simulated data based on regional conflict probability,12.35766,76.69382
+SIM-1104,21/11/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,49,Injured,Simulated data based on regional conflict probability,10.936,76.97686
+SIM-1105,30/03/2023,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,51,Injured,Simulated data based on regional conflict probability,29.32255,79.51524
+SIM-1106,06/07/2020,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,49,Injured,Simulated data based on regional conflict probability,29.41631,79.5024
+SIM-1107,04/06/2021,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,22,Deceased,Simulated data based on regional conflict probability,12.38584,75.79567
+SIM-1108,27/04/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,69,Injured,Simulated data based on regional conflict probability,26.18042,91.79497
+SIM-1109,08/10/2022,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,68,Injured,Simulated data based on regional conflict probability,24.39878,72.13539
+SIM-1110,03/07/2020,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,63,Deceased,Simulated data based on regional conflict probability,21.83751,80.18398
+SIM-1111,13/01/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,47,Injured,Simulated data based on regional conflict probability,12.47727,76.85775
+SIM-1112,12/02/2021,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,45,Injured,Simulated data based on regional conflict probability,24.21136,72.15944
+SIM-1113,13/06/2023,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,32,Injured,Simulated data based on regional conflict probability,29.353,79.41572
+SIM-1114,31/08/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,55,Deceased,Simulated data based on regional conflict probability,12.33838,76.55679
+SIM-1115,12/04/2020,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,68,Injured,Simulated data based on regional conflict probability,20.58522,85.68661
+SIM-1116,27/03/2024,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,36,Injured,Simulated data based on regional conflict probability,21.83622,80.12537
+SIM-1117,17/09/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,62,Injured,Simulated data based on regional conflict probability,12.53312,76.96702
+SIM-1118,11/05/2021,Elephant,Forest Fringe (Simulated),Angul,Odisha,40,Injured,Simulated data based on regional conflict probability,20.79905,85.15857
+SIM-1119,27/10/2023,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,55,Injured,Simulated data based on regional conflict probability,18.98731,72.89813
+SIM-1120,08/10/2021,Elephant,Forest Fringe (Simulated),Angul,Odisha,19,Injured,Simulated data based on regional conflict probability,20.91511,85.20628
+SIM-1121,22/06/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,61,Injured,Simulated data based on regional conflict probability,10.91449,76.94664
+SIM-1122,27/04/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,47,Injured,Simulated data based on regional conflict probability,26.09916,91.70577
+SIM-1123,29/11/2022,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,51,Injured,Simulated data based on regional conflict probability,12.46674,76.86286
+SIM-1124,18/08/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,68,Deceased,Simulated data based on regional conflict probability,10.99003,76.98761
+SIM-1125,22/04/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,47,Injured,Simulated data based on regional conflict probability,26.18173,91.73563
+SIM-1126,21/01/2021,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,42,Injured,Simulated data based on regional conflict probability,18.99897,72.79176
+SIM-1127,28/11/2024,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,34,Injured,Simulated data based on regional conflict probability,12.55207,76.9059
+SIM-1128,03/07/2023,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,64,Deceased,Simulated data based on regional conflict probability,12.48395,75.79499
+SIM-1129,31/07/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,59,Injured,Simulated data based on regional conflict probability,19.09307,72.82534
+SIM-1130,21/01/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,70,Injured,Simulated data based on regional conflict probability,12.47849,76.82905
+SIM-1131,28/08/2021,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,68,Injured,Simulated data based on regional conflict probability,12.46679,75.82184
+SIM-1132,19/04/2021,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,18,Injured,Simulated data based on regional conflict probability,24.30376,72.28413
+SIM-1133,18/09/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,53,Injured,Simulated data based on regional conflict probability,12.45607,76.86867
+SIM-1134,02/11/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,67,Injured,Simulated data based on regional conflict probability,12.56937,76.96848
+SIM-1135,15/01/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,37,Injured,Simulated data based on regional conflict probability,19.1373,72.94432
+SIM-1136,12/05/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,44,Deceased,Simulated data based on regional conflict probability,10.91207,76.86555
+SIM-1137,10/01/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,59,Deceased,Simulated data based on regional conflict probability,12.3735,76.60875
+SIM-1138,14/05/2020,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,25,Injured,Simulated data based on regional conflict probability,12.44611,76.94684
+SIM-1139,01/08/2021,Elephant,Forest Fringe (Simulated),Angul,Odisha,31,Injured,Simulated data based on regional conflict probability,20.88268,85.16498
+SIM-1140,28/02/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,65,Deceased,Simulated data based on regional conflict probability,12.34499,76.72621
+SIM-1141,17/04/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,28,Injured,Simulated data based on regional conflict probability,12.56779,76.81405
+SIM-1142,03/10/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,60,Injured,Simulated data based on regional conflict probability,12.43781,76.94526
+SIM-1143,13/12/2024,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,51,Injured,Simulated data based on regional conflict probability,21.72375,80.16635
+SIM-1144,26/03/2020,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,51,Injured,Simulated data based on regional conflict probability,15.39391,76.08246
+SIM-1145,09/08/2023,Elephant,Forest Fringe (Simulated),Angul,Odisha,29,Injured,Simulated data based on regional conflict probability,20.75063,85.21518
+SIM-1146,29/10/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,47,Deceased,Simulated data based on regional conflict probability,29.32422,79.55504
+SIM-1147,16/07/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,53,Injured,Simulated data based on regional conflict probability,12.40832,75.79454
+SIM-1148,07/11/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,52,Injured,Simulated data based on regional conflict probability,12.20169,76.69526
+SIM-1149,20/04/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,70,Injured,Simulated data based on regional conflict probability,11.09423,76.97192
+SIM-1150,10/10/2021,Elephant,Forest Fringe (Simulated),Angul,Odisha,64,Injured,Simulated data based on regional conflict probability,20.76676,85.19599
+SIM-1151,29/03/2021,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,19,Injured,Simulated data based on regional conflict probability,19.931,79.28678
+SIM-1152,10/04/2020,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,61,Injured,Simulated data based on regional conflict probability,12.59174,76.83376
+SIM-1153,05/03/2021,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,42,Deceased,Simulated data based on regional conflict probability,21.83581,80.14784
+SIM-1154,13/06/2022,Elephant,Forest Fringe (Simulated),Angul,Odisha,27,Injured,Simulated data based on regional conflict probability,20.80957,85.1757
+SIM-1155,13/05/2024,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,56,Injured,Simulated data based on regional conflict probability,12.19101,76.58049
+SIM-1156,13/06/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,26,Injured,Simulated data based on regional conflict probability,26.14342,91.64152
+SIM-1157,10/10/2022,Elephant,Forest Fringe (Simulated),Angul,Odisha,32,Deceased,Simulated data based on regional conflict probability,20.87084,85.16985
+SIM-1158,19/11/2024,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,57,Injured,Simulated data based on regional conflict probability,12.55924,76.94136
+SIM-1159,10/11/2021,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,58,Injured,Simulated data based on regional conflict probability,29.43431,79.36974
+SIM-1160,20/06/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,33,Injured,Simulated data based on regional conflict probability,26.08473,91.8115
+SIM-1161,10/10/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,31,Deceased,Simulated data based on regional conflict probability,10.99712,76.98067
+SIM-1162,03/02/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,39,Injured,Simulated data based on regional conflict probability,29.37183,79.37016
+SIM-1163,24/09/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,61,Injured,Simulated data based on regional conflict probability,18.99078,72.79648
+SIM-1164,02/08/2023,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,32,Injured,Simulated data based on regional conflict probability,19.08668,72.84673
+SIM-1165,13/06/2022,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,29,Injured,Simulated data based on regional conflict probability,20.57591,85.50356
+SIM-1166,19/09/2020,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,42,Injured,Simulated data based on regional conflict probability,19.91018,79.22958
+SIM-1167,31/05/2022,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,31,Injured,Simulated data based on regional conflict probability,15.29615,76.07057
+SIM-1168,19/07/2022,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,57,Deceased,Simulated data based on regional conflict probability,19.88788,79.33468
+SIM-1169,20/01/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,60,Injured,Simulated data based on regional conflict probability,26.13623,91.72498
+SIM-1170,08/09/2024,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,28,Deceased,Simulated data based on regional conflict probability,19.87348,79.22301
+SIM-1171,31/07/2020,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,42,Injured,Simulated data based on regional conflict probability,24.27601,72.27323
+SIM-1172,20/02/2024,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,55,Injured,Simulated data based on regional conflict probability,12.61333,76.9529
+SIM-1173,11/04/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,44,Injured,Simulated data based on regional conflict probability,29.32973,79.39675
+SIM-1174,25/01/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,21,Injured,Simulated data based on regional conflict probability,12.52518,76.87562
+SIM-1175,26/12/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,70,Injured,Simulated data based on regional conflict probability,15.36578,76.21934
+SIM-1176,14/12/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,22,Injured,Simulated data based on regional conflict probability,12.60616,76.98191
+SIM-1177,27/06/2021,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,24,Deceased,Simulated data based on regional conflict probability,20.57069,85.5293
+SIM-1178,20/09/2024,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,66,Injured,Simulated data based on regional conflict probability,19.88291,79.38673
+SIM-1179,21/11/2021,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,56,Injured,Simulated data based on regional conflict probability,19.11065,72.84483
+SIM-1180,07/10/2022,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,55,Injured,Simulated data based on regional conflict probability,15.38654,76.06278
+SIM-1181,17/11/2020,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,36,Injured,Simulated data based on regional conflict probability,29.39453,79.36754
+SIM-1182,09/07/2023,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,32,Deceased,Simulated data based on regional conflict probability,19.999,79.19595
+SIM-1183,08/12/2023,Elephant,Forest Fringe (Simulated),Angul,Odisha,55,Injured,Simulated data based on regional conflict probability,20.85841,85.20696
+SIM-1184,11/03/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,44,Injured,Simulated data based on regional conflict probability,26.18529,91.74007
+SIM-1185,28/11/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,19,Injured,Simulated data based on regional conflict probability,12.20777,76.53791
+SIM-1186,23/03/2023,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,34,Injured,Simulated data based on regional conflict probability,19.93403,79.19982
+SIM-1187,25/01/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,24,Injured,Simulated data based on regional conflict probability,19.16314,72.90864
+SIM-1188,02/07/2024,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,47,Injured,Simulated data based on regional conflict probability,12.51272,76.96701
+SIM-1189,18/07/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,26,Injured,Simulated data based on regional conflict probability,26.20588,91.8138
+SIM-1190,29/10/2020,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,44,Injured,Simulated data based on regional conflict probability,19.97363,79.21814
+SIM-1191,17/12/2021,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,43,Injured,Simulated data based on regional conflict probability,29.35513,79.4549
+SIM-1192,30/09/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,58,Injured,Simulated data based on regional conflict probability,11.01507,76.91248
+SIM-1193,08/02/2022,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,68,Injured,Simulated data based on regional conflict probability,12.50383,76.80833
+SIM-1194,23/03/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,32,Injured,Simulated data based on regional conflict probability,12.61925,76.94613
+SIM-1195,23/03/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,26,Injured,Simulated data based on regional conflict probability,12.38328,76.5892
+SIM-1196,16/09/2023,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,70,Deceased,Simulated data based on regional conflict probability,19.8918,79.33133
+SIM-1197,28/10/2024,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,42,Injured,Simulated data based on regional conflict probability,15.32853,76.1208
+SIM-1198,07/05/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,28,Injured,Simulated data based on regional conflict probability,11.03354,76.95596
+SIM-1199,17/11/2022,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,51,Injured,Simulated data based on regional conflict probability,19.97919,79.35568
+SIM-1200,16/11/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,60,Injured,Simulated data based on regional conflict probability,26.09682,91.73755
+SIM-1201,23/01/2020,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,47,Deceased,Simulated data based on regional conflict probability,12.46846,76.80164
+SIM-1202,29/06/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,37,Injured,Simulated data based on regional conflict probability,12.56673,76.94301
+SIM-1203,03/12/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,64,Deceased,Simulated data based on regional conflict probability,12.38397,76.67743
+SIM-1204,15/01/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,25,Injured,Simulated data based on regional conflict probability,15.32939,76.14572
+SIM-1205,28/02/2022,Leopard,Forest Fringe (Simulated),Guwahati,Assam,49,Injured,Simulated data based on regional conflict probability,26.1995,91.79161
+SIM-1206,08/04/2022,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,37,Deceased,Simulated data based on regional conflict probability,19.97757,79.35913
+SIM-1207,10/10/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,55,Deceased,Simulated data based on regional conflict probability,11.08606,77.00595
+SIM-1208,03/04/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,23,Injured,Simulated data based on regional conflict probability,12.36773,76.54574
+SIM-1209,27/06/2024,Elephant,Forest Fringe (Simulated),Angul,Odisha,45,Injured,Simulated data based on regional conflict probability,20.7986,85.07249
+SIM-1210,01/09/2024,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,30,Deceased,Simulated data based on regional conflict probability,24.30517,72.13957
+SIM-1211,12/08/2023,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,57,Injured,Simulated data based on regional conflict probability,21.82612,80.18739
+SIM-1212,19/09/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,26,Injured,Simulated data based on regional conflict probability,12.43549,76.84642
+SIM-1213,03/06/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,58,Injured,Simulated data based on regional conflict probability,19.02491,72.8259
+SIM-1214,03/08/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,34,Injured,Simulated data based on regional conflict probability,15.27624,76.14802
+SIM-1215,29/08/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,60,Deceased,Simulated data based on regional conflict probability,12.35393,76.58844
+SIM-1216,13/03/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,23,Injured,Simulated data based on regional conflict probability,11.08261,76.99948
+SIM-1217,08/12/2021,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,52,Injured,Simulated data based on regional conflict probability,10.99149,76.93669
+SIM-1218,30/08/2023,Elephant,Forest Fringe (Simulated),Angul,Odisha,55,Injured,Simulated data based on regional conflict probability,20.79492,85.105
+SIM-1219,25/04/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,32,Injured,Simulated data based on regional conflict probability,26.18641,91.71002
+SIM-1220,21/03/2021,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,45,Injured,Simulated data based on regional conflict probability,19.88257,79.30452
+SIM-1221,29/09/2020,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,30,Injured,Simulated data based on regional conflict probability,24.25074,72.1837
+SIM-1222,20/09/2022,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,54,Injured,Simulated data based on regional conflict probability,21.77269,80.26974
+SIM-1223,22/09/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,50,Injured,Simulated data based on regional conflict probability,26.09443,91.70184
+SIM-1224,17/11/2022,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,40,Injured,Simulated data based on regional conflict probability,24.37932,72.21267
+SIM-1225,30/11/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,26,Injured,Simulated data based on regional conflict probability,26.11477,91.68954
+SIM-1226,12/04/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,62,Injured,Simulated data based on regional conflict probability,19.12518,72.80877
+SIM-1227,25/08/2023,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,22,Injured,Simulated data based on regional conflict probability,21.81177,80.22699
+SIM-1228,07/09/2022,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,66,Injured,Simulated data based on regional conflict probability,15.32933,76.17287
+SIM-1229,16/12/2024,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,28,Injured,Simulated data based on regional conflict probability,29.38963,79.55141
+SIM-1230,19/11/2023,Elephant,Forest Fringe (Simulated),Angul,Odisha,62,Deceased,Simulated data based on regional conflict probability,20.80997,85.20913
+SIM-1231,19/12/2021,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,67,Deceased,Simulated data based on regional conflict probability,12.30836,76.55548
+SIM-1232,14/05/2022,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,21,Deceased,Simulated data based on regional conflict probability,12.37112,75.63086
+SIM-1233,02/09/2024,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,22,Injured,Simulated data based on regional conflict probability,15.34284,76.24474
+SIM-1234,28/06/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,46,Injured,Simulated data based on regional conflict probability,19.00586,72.89117
+SIM-1235,18/12/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,22,Injured,Simulated data based on regional conflict probability,26.19419,91.8041
+SIM-1236,07/09/2024,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,62,Injured,Simulated data based on regional conflict probability,21.84015,80.0997
+SIM-1237,14/08/2021,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,33,Injured,Simulated data based on regional conflict probability,12.40976,75.67453
+SIM-1238,01/08/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,29,Injured,Simulated data based on regional conflict probability,12.22599,76.65598
+SIM-1239,03/07/2020,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,56,Injured,Simulated data based on regional conflict probability,24.24275,72.20168
+SIM-1240,16/11/2024,Elephant,Forest Fringe (Simulated),Angul,Odisha,33,Injured,Simulated data based on regional conflict probability,20.73539,85.1078
+SIM-1241,09/03/2020,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,39,Injured,Simulated data based on regional conflict probability,15.3577,76.07789
+SIM-1242,27/04/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,56,Injured,Simulated data based on regional conflict probability,19.10155,72.78101
+SIM-1243,11/11/2020,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,62,Injured,Simulated data based on regional conflict probability,21.89293,80.25196
+SIM-1244,17/06/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,54,Injured,Simulated data based on regional conflict probability,12.52915,76.90147
+SIM-1245,18/08/2023,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,31,Injured,Simulated data based on regional conflict probability,19.15603,72.80586
+SIM-1246,30/09/2022,Leopard,Forest Fringe (Simulated),Guwahati,Assam,26,Injured,Simulated data based on regional conflict probability,26.0474,91.74504
+SIM-1247,12/04/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,55,Injured,Simulated data based on regional conflict probability,15.44796,76.21062
+SIM-1248,03/04/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,62,Injured,Simulated data based on regional conflict probability,12.29593,76.63383
+SIM-1249,04/04/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,63,Injured,Simulated data based on regional conflict probability,15.42168,76.19801
+SIM-1250,12/06/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,32,Injured,Simulated data based on regional conflict probability,11.03837,77.02453
+SIM-1251,08/06/2023,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,62,Injured,Simulated data based on regional conflict probability,29.43407,79.37141
+SIM-1252,05/10/2022,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,28,Injured,Simulated data based on regional conflict probability,21.8439,80.17298
+SIM-1253,23/03/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,61,Deceased,Simulated data based on regional conflict probability,12.3007,76.56144
+SIM-1254,30/11/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,46,Deceased,Simulated data based on regional conflict probability,12.3061,76.56838
+SIM-1255,31/10/2021,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,28,Deceased,Simulated data based on regional conflict probability,12.41148,75.81734
+SIM-1256,26/11/2023,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,48,Injured,Simulated data based on regional conflict probability,21.83212,80.19126
+SIM-1257,29/12/2022,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,31,Injured,Simulated data based on regional conflict probability,24.36852,72.1402
+SIM-1258,22/07/2023,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,25,Injured,Simulated data based on regional conflict probability,29.31987,79.55077
+SIM-1259,25/12/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,46,Injured,Simulated data based on regional conflict probability,12.46898,76.83056
+SIM-1260,02/09/2023,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,48,Injured,Simulated data based on regional conflict probability,20.59226,85.55166
+SIM-1261,01/03/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,24,Deceased,Simulated data based on regional conflict probability,12.42908,76.95789
+SIM-1262,14/01/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,62,Injured,Simulated data based on regional conflict probability,12.30383,76.6849
+SIM-1263,17/09/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,27,Injured,Simulated data based on regional conflict probability,12.47587,75.82473
+SIM-1264,13/07/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,22,Injured,Simulated data based on regional conflict probability,19.0159,72.90691
+SIM-1265,09/07/2023,Elephant,Forest Fringe (Simulated),Angul,Odisha,60,Injured,Simulated data based on regional conflict probability,20.8163,85.08779
+SIM-1266,24/06/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,33,Deceased,Simulated data based on regional conflict probability,10.99772,76.89198
+SIM-1267,02/12/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,56,Injured,Simulated data based on regional conflict probability,19.0417,72.84113
+SIM-1268,23/10/2020,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,37,Deceased,Simulated data based on regional conflict probability,12.50677,76.85465
+SIM-1269,18/07/2023,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,60,Injured,Simulated data based on regional conflict probability,24.27997,72.18759
+SIM-1270,06/06/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,27,Injured,Simulated data based on regional conflict probability,12.51461,76.87244
+SIM-1271,30/06/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,22,Deceased,Simulated data based on regional conflict probability,11.04606,77.04647
+SIM-1272,18/10/2022,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,34,Injured,Simulated data based on regional conflict probability,20.73547,85.51522
+SIM-1273,17/12/2024,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,52,Deceased,Simulated data based on regional conflict probability,19.96627,79.19714
+SIM-1274,22/08/2022,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,41,Injured,Simulated data based on regional conflict probability,12.32082,75.65861
+SIM-1275,08/03/2020,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,18,Injured,Simulated data based on regional conflict probability,19.09731,72.86748
+SIM-1276,03/09/2020,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,60,Injured,Simulated data based on regional conflict probability,29.37876,79.39631
+SIM-1277,27/06/2022,Leopard,Forest Fringe (Simulated),Guwahati,Assam,62,Injured,Simulated data based on regional conflict probability,26.19694,91.73785
+SIM-1278,25/04/2021,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,34,Injured,Simulated data based on regional conflict probability,24.21933,72.22967
+SIM-1279,07/10/2021,Elephant,Forest Fringe (Simulated),Angul,Odisha,63,Injured,Simulated data based on regional conflict probability,20.77557,85.19622
+SIM-1280,11/04/2021,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,31,Injured,Simulated data based on regional conflict probability,21.87891,80.10428
+SIM-1281,24/04/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,55,Injured,Simulated data based on regional conflict probability,15.3266,76.05353
+SIM-1282,03/08/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,67,Deceased,Simulated data based on regional conflict probability,12.43256,75.77941
+SIM-1283,21/11/2021,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,55,Deceased,Simulated data based on regional conflict probability,12.38096,75.80622
+SIM-1284,06/12/2022,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,58,Injured,Simulated data based on regional conflict probability,24.30649,72.12553
+SIM-1285,24/12/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,56,Injured,Simulated data based on regional conflict probability,19.13207,72.94239
+SIM-1286,01/10/2020,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,57,Injured,Simulated data based on regional conflict probability,19.00382,72.90063
+SIM-1287,18/08/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,53,Injured,Simulated data based on regional conflict probability,11.06935,76.85106
+SIM-1288,08/02/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,50,Injured,Simulated data based on regional conflict probability,29.45957,79.55665
+SIM-1289,09/07/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,47,Deceased,Simulated data based on regional conflict probability,19.16525,72.84916
+SIM-1290,27/09/2022,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,70,Injured,Simulated data based on regional conflict probability,12.45975,76.84323
+SIM-1291,30/10/2024,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,53,Deceased,Simulated data based on regional conflict probability,15.28554,76.18397
+SIM-1292,05/10/2021,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,30,Injured,Simulated data based on regional conflict probability,24.22791,72.11596
+SIM-1293,22/02/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,53,Injured,Simulated data based on regional conflict probability,11.03363,76.87519
+SIM-1294,22/06/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,70,Injured,Simulated data based on regional conflict probability,19.14508,72.89625
+SIM-1295,30/10/2024,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,69,Deceased,Simulated data based on regional conflict probability,12.23171,76.53438
+SIM-1296,26/08/2023,Elephant,Forest Fringe (Simulated),Angul,Odisha,60,Deceased,Simulated data based on regional conflict probability,20.92121,85.10608
+SIM-1297,07/08/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,31,Injured,Simulated data based on regional conflict probability,11.10216,76.86825
+SIM-1298,05/04/2022,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,67,Injured,Simulated data based on regional conflict probability,20.54508,85.56599
+SIM-1299,28/07/2020,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,18,Injured,Simulated data based on regional conflict probability,21.88175,80.15611
+SIM-1300,12/08/2021,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,46,Deceased,Simulated data based on regional conflict probability,12.43341,75.79018
+SIM-1301,02/02/2020,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,27,Injured,Simulated data based on regional conflict probability,20.63145,85.63446
+SIM-1302,01/08/2024,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,61,Injured,Simulated data based on regional conflict probability,12.24941,76.6932
+SIM-1303,27/06/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,23,Injured,Simulated data based on regional conflict probability,10.91542,76.94771
+SIM-1304,20/03/2024,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,25,Injured,Simulated data based on regional conflict probability,21.74827,80.11418
+SIM-1305,29/06/2024,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,51,Injured,Simulated data based on regional conflict probability,15.42576,76.06586
+SIM-1306,01/11/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,24,Injured,Simulated data based on regional conflict probability,11.08549,76.89073
+SIM-1307,16/07/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,59,Injured,Simulated data based on regional conflict probability,26.1847,91.66887
+SIM-1308,09/07/2023,Elephant,Forest Fringe (Simulated),Angul,Odisha,30,Injured,Simulated data based on regional conflict probability,20.82035,85.17841
+SIM-1309,19/05/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,24,Injured,Simulated data based on regional conflict probability,12.29774,76.5994
+SIM-1310,31/05/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,29,Injured,Simulated data based on regional conflict probability,11.04498,77.04539
+SIM-1311,15/01/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,34,Injured,Simulated data based on regional conflict probability,11.05969,77.03596
+SIM-1312,08/03/2023,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,30,Injured,Simulated data based on regional conflict probability,12.36652,75.7975
+SIM-1313,24/10/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,25,Injured,Simulated data based on regional conflict probability,15.27053,76.21585
+SIM-1314,28/06/2023,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,62,Injured,Simulated data based on regional conflict probability,19.00815,72.77104
+SIM-1315,24/05/2021,Elephant,Forest Fringe (Simulated),Angul,Odisha,68,Deceased,Simulated data based on regional conflict probability,20.92004,85.19003
+SIM-1316,02/02/2021,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,52,Injured,Simulated data based on regional conflict probability,12.34313,76.67766
+SIM-1317,09/08/2024,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,32,Injured,Simulated data based on regional conflict probability,20.69975,85.49977
+SIM-1318,05/12/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,66,Injured,Simulated data based on regional conflict probability,12.45582,76.94998
+SIM-1319,22/08/2024,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,22,Injured,Simulated data based on regional conflict probability,20.59434,85.60737
+SIM-1320,20/05/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,70,Deceased,Simulated data based on regional conflict probability,12.36267,75.76231
+SIM-1321,20/12/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,50,Deceased,Simulated data based on regional conflict probability,10.91763,77.04328
+SIM-1322,08/05/2022,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,30,Injured,Simulated data based on regional conflict probability,15.38095,76.07361
+SIM-1323,05/11/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,39,Injured,Simulated data based on regional conflict probability,12.44857,76.93027
+SIM-1324,19/03/2020,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,45,Injured,Simulated data based on regional conflict probability,15.25153,76.22983
+SIM-1325,23/09/2022,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,39,Injured,Simulated data based on regional conflict probability,21.72414,80.24274
+SIM-1326,07/03/2022,Elephant,Forest Fringe (Simulated),Angul,Odisha,63,Deceased,Simulated data based on regional conflict probability,20.73949,85.19988
+SIM-1327,26/01/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,27,Injured,Simulated data based on regional conflict probability,19.07803,72.86623
+SIM-1328,31/05/2021,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,25,Deceased,Simulated data based on regional conflict probability,20.03431,79.36897
+SIM-1329,12/04/2024,Elephant,Forest Fringe (Simulated),Angul,Odisha,48,Injured,Simulated data based on regional conflict probability,20.88389,85.13089
+SIM-1330,11/10/2023,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,22,Injured,Simulated data based on regional conflict probability,21.71739,80.27408
+SIM-1331,25/06/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,62,Injured,Simulated data based on regional conflict probability,26.17413,91.6687
+SIM-1332,22/02/2024,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,63,Injured,Simulated data based on regional conflict probability,29.46908,79.41573
+SIM-1333,02/07/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,34,Injured,Simulated data based on regional conflict probability,10.92936,76.96471
+SIM-1334,08/03/2022,Elephant,Forest Fringe (Simulated),Angul,Odisha,49,Injured,Simulated data based on regional conflict probability,20.75475,85.16353
+SIM-1335,28/08/2020,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,33,Injured,Simulated data based on regional conflict probability,20.66202,85.61563
+SIM-1336,28/08/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,68,Injured,Simulated data based on regional conflict probability,26.05889,91.65598
+SIM-1337,16/01/2020,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,70,Deceased,Simulated data based on regional conflict probability,29.41838,79.5536
+SIM-1338,27/06/2023,Elephant,Forest Fringe (Simulated),Angul,Odisha,41,Injured,Simulated data based on regional conflict probability,20.84344,85.10315
+SIM-1339,29/08/2024,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,22,Injured,Simulated data based on regional conflict probability,20.70305,85.65293
+SIM-1340,02/12/2023,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,45,Injured,Simulated data based on regional conflict probability,20.63009,85.53675
+SIM-1341,17/03/2020,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,63,Deceased,Simulated data based on regional conflict probability,24.32496,72.25799
+SIM-1342,20/12/2021,Elephant,Forest Fringe (Simulated),Angul,Odisha,34,Deceased,Simulated data based on regional conflict probability,20.81593,85.11792
+SIM-1343,19/09/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,60,Injured,Simulated data based on regional conflict probability,12.37177,76.65549
+SIM-1344,17/04/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,41,Injured,Simulated data based on regional conflict probability,12.30759,76.71816
+SIM-1345,09/10/2020,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,43,Injured,Simulated data based on regional conflict probability,21.72436,80.11146
+SIM-1346,12/12/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,57,Injured,Simulated data based on regional conflict probability,19.07357,72.90666
+SIM-1347,09/01/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,64,Injured,Simulated data based on regional conflict probability,26.21553,91.69578
+SIM-1348,17/06/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,57,Injured,Simulated data based on regional conflict probability,26.16442,91.71794
+SIM-1349,26/10/2024,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,43,Injured,Simulated data based on regional conflict probability,12.43676,76.84021
+SIM-1350,15/07/2021,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,27,Deceased,Simulated data based on regional conflict probability,12.45893,75.77144
+SIM-1351,22/01/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,47,Injured,Simulated data based on regional conflict probability,29.44322,79.55019
+SIM-1352,08/01/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,53,Injured,Simulated data based on regional conflict probability,26.09124,91.72852
+SIM-1353,21/07/2022,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,44,Injured,Simulated data based on regional conflict probability,12.59909,76.90645
+SIM-1354,04/09/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,58,Injured,Simulated data based on regional conflict probability,12.2267,76.54534
+SIM-1355,04/05/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,39,Injured,Simulated data based on regional conflict probability,12.3551,76.72709
+SIM-1356,21/07/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,54,Injured,Simulated data based on regional conflict probability,11.08499,76.93194
+SIM-1357,24/06/2020,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,69,Injured,Simulated data based on regional conflict probability,15.35481,76.08282
+SIM-1358,07/10/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,62,Injured,Simulated data based on regional conflict probability,19.0658,72.89969
+SIM-1359,14/06/2024,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,22,Injured,Simulated data based on regional conflict probability,24.37856,72.20548
+SIM-1360,21/08/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,53,Injured,Simulated data based on regional conflict probability,10.98685,76.94706
+SIM-1361,23/10/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,61,Deceased,Simulated data based on regional conflict probability,29.33998,79.43397
+SIM-1362,02/08/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,61,Deceased,Simulated data based on regional conflict probability,12.21158,76.59443
+SIM-1363,12/05/2024,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,63,Injured,Simulated data based on regional conflict probability,12.39151,75.82443
+SIM-1364,05/03/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,62,Injured,Simulated data based on regional conflict probability,19.10221,72.79417
+SIM-1365,26/03/2020,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,31,Injured,Simulated data based on regional conflict probability,24.39293,72.29757
+SIM-1366,22/12/2024,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,18,Injured,Simulated data based on regional conflict probability,21.89771,80.26917
+SIM-1367,23/09/2023,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,25,Deceased,Simulated data based on regional conflict probability,19.93854,79.30401
+SIM-1368,31/08/2023,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,41,Injured,Simulated data based on regional conflict probability,15.42463,76.1535
+SIM-1369,21/06/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,47,Injured,Simulated data based on regional conflict probability,26.10884,91.70911
+SIM-1370,30/08/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,50,Injured,Simulated data based on regional conflict probability,19.1162,72.92406
+SIM-1371,16/11/2022,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,68,Injured,Simulated data based on regional conflict probability,12.48817,76.86861
+SIM-1372,11/12/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,18,Deceased,Simulated data based on regional conflict probability,10.97123,76.91306
+SIM-1373,18/09/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,66,Injured,Simulated data based on regional conflict probability,15.42266,76.16351
+SIM-1374,17/10/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,38,Injured,Simulated data based on regional conflict probability,12.45036,76.89754
+SIM-1375,17/10/2021,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,45,Injured,Simulated data based on regional conflict probability,20.6342,85.6664
+SIM-1376,24/11/2020,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,30,Injured,Simulated data based on regional conflict probability,21.77751,80.19611
+SIM-1377,20/05/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,55,Deceased,Simulated data based on regional conflict probability,12.32772,76.5697
+SIM-1378,27/03/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,19,Injured,Simulated data based on regional conflict probability,26.12787,91.80385
+SIM-1379,21/09/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,42,Injured,Simulated data based on regional conflict probability,11.01642,76.94002
+SIM-1380,14/09/2024,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,70,Injured,Simulated data based on regional conflict probability,24.27811,72.26973
+SIM-1381,06/07/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,38,Deceased,Simulated data based on regional conflict probability,26.20785,91.68368
+SIM-1382,22/04/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,49,Injured,Simulated data based on regional conflict probability,26.0922,91.71755
+SIM-1383,05/10/2020,Elephant,Forest Fringe (Simulated),Angul,Odisha,22,Injured,Simulated data based on regional conflict probability,20.82505,85.11529
+SIM-1384,21/11/2021,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,62,Deceased,Simulated data based on regional conflict probability,19.05753,72.94112
+SIM-1385,18/04/2023,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,50,Injured,Simulated data based on regional conflict probability,20.59312,85.52814
+SIM-1386,29/01/2022,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,20,Injured,Simulated data based on regional conflict probability,21.89643,80.2009
+SIM-1387,19/06/2021,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,34,Injured,Simulated data based on regional conflict probability,29.35565,79.4428
+SIM-1388,17/10/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,62,Injured,Simulated data based on regional conflict probability,10.96712,76.99844
+SIM-1389,28/10/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,39,Deceased,Simulated data based on regional conflict probability,12.28714,76.67996
+SIM-1390,07/07/2023,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,62,Injured,Simulated data based on regional conflict probability,15.3665,76.16803
+SIM-1391,22/05/2022,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,70,Injured,Simulated data based on regional conflict probability,19.96367,79.26672
+SIM-1392,01/11/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,19,Injured,Simulated data based on regional conflict probability,26.16841,91.76611
+SIM-1393,12/08/2021,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,41,Deceased,Simulated data based on regional conflict probability,29.44736,79.50454
+SIM-1394,09/02/2024,Elephant,Forest Fringe (Simulated),Angul,Odisha,65,Deceased,Simulated data based on regional conflict probability,20.75357,85.18775
+SIM-1395,28/12/2024,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,70,Injured,Simulated data based on regional conflict probability,20.62909,85.58166
+SIM-1396,14/06/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,56,Deceased,Simulated data based on regional conflict probability,29.39598,79.4447
+SIM-1397,07/12/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,50,Injured,Simulated data based on regional conflict probability,26.11474,91.67367
+SIM-1398,07/10/2022,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,51,Injured,Simulated data based on regional conflict probability,19.87383,79.23962
+SIM-1399,19/12/2023,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,60,Injured,Simulated data based on regional conflict probability,20.73905,85.58676
+SIM-1400,05/09/2020,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,31,Injured,Simulated data based on regional conflict probability,15.41313,76.11764
+SIM-1401,10/04/2024,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,50,Injured,Simulated data based on regional conflict probability,15.44501,76.21249
+SIM-1402,25/01/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,50,Deceased,Simulated data based on regional conflict probability,12.40986,75.66306
+SIM-1403,17/09/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,23,Injured,Simulated data based on regional conflict probability,26.17606,91.8248
+SIM-1404,30/05/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,24,Injured,Simulated data based on regional conflict probability,15.43445,76.0744
+SIM-1405,14/10/2023,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,37,Injured,Simulated data based on regional conflict probability,15.40022,76.22169
+SIM-1406,15/09/2024,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,47,Injured,Simulated data based on regional conflict probability,21.75039,80.22069
+SIM-1407,05/02/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,52,Injured,Simulated data based on regional conflict probability,26.09876,91.71607
+SIM-1408,13/09/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,41,Injured,Simulated data based on regional conflict probability,12.55215,76.87729
+SIM-1409,20/07/2024,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,52,Deceased,Simulated data based on regional conflict probability,12.35026,75.81266
+SIM-1410,12/01/2021,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,64,Deceased,Simulated data based on regional conflict probability,29.44089,79.43891
+SIM-1411,18/11/2024,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,41,Injured,Simulated data based on regional conflict probability,20.55433,85.60479
+SIM-1412,07/01/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,38,Deceased,Simulated data based on regional conflict probability,15.26848,76.22902
+SIM-1413,09/04/2022,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,60,Injured,Simulated data based on regional conflict probability,21.74729,80.24322
+SIM-1414,26/11/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,62,Injured,Simulated data based on regional conflict probability,12.47858,76.9073
+SIM-1415,06/04/2021,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,45,Injured,Simulated data based on regional conflict probability,21.73876,80.09042
+SIM-1416,03/01/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,53,Injured,Simulated data based on regional conflict probability,15.25082,76.06615
+SIM-1417,16/02/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,49,Injured,Simulated data based on regional conflict probability,26.09157,91.76631
+SIM-1418,11/06/2021,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,55,Deceased,Simulated data based on regional conflict probability,12.38553,76.6262
+SIM-1419,29/05/2022,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,57,Injured,Simulated data based on regional conflict probability,11.09446,77.00716
+SIM-1420,28/12/2021,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,28,Injured,Simulated data based on regional conflict probability,20.61336,85.49605
+SIM-1421,18/10/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,33,Injured,Simulated data based on regional conflict probability,29.32244,79.48066
+SIM-1422,18/03/2022,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,19,Injured,Simulated data based on regional conflict probability,12.32228,75.82953
+SIM-1423,07/12/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,43,Injured,Simulated data based on regional conflict probability,12.3682,76.56088
+SIM-1424,18/11/2023,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,30,Injured,Simulated data based on regional conflict probability,12.43006,75.68015
+SIM-1425,12/10/2020,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,59,Deceased,Simulated data based on regional conflict probability,12.42233,75.72317
+SIM-1426,14/10/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,36,Injured,Simulated data based on regional conflict probability,11.09611,77.04785
+SIM-1427,25/05/2020,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,19,Injured,Simulated data based on regional conflict probability,12.53352,76.92072
+SIM-1428,10/04/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,67,Injured,Simulated data based on regional conflict probability,11.02389,76.8754
+SIM-1429,07/06/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,51,Injured,Simulated data based on regional conflict probability,12.19743,76.66061
+SIM-1430,25/10/2023,Sloth Bear,Forest Fringe (Simulated),Banaskantha,Gujarat,39,Injured,Simulated data based on regional conflict probability,24.27109,72.13135
+SIM-1431,28/07/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,48,Injured,Simulated data based on regional conflict probability,26.15464,91.793
+SIM-1432,10/06/2021,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,50,Deceased,Simulated data based on regional conflict probability,11.09786,76.98395
+SIM-1433,08/02/2022,Elephant,Forest Fringe (Simulated),Angul,Odisha,68,Injured,Simulated data based on regional conflict probability,20.78602,85.09982
+SIM-1434,06/02/2024,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,60,Injured,Simulated data based on regional conflict probability,21.76611,80.19729
+SIM-1435,19/01/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,61,Deceased,Simulated data based on regional conflict probability,12.4357,76.89664
+SIM-1436,26/11/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,55,Deceased,Simulated data based on regional conflict probability,26.11116,91.65141
+SIM-1437,09/07/2020,Elephant,Forest Fringe (Simulated),Angul,Odisha,63,Injured,Simulated data based on regional conflict probability,20.86476,85.21297
+SIM-1438,09/11/2022,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,42,Injured,Simulated data based on regional conflict probability,29.35092,79.48798
+SIM-1439,19/01/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,40,Deceased,Simulated data based on regional conflict probability,11.09952,76.88314
+SIM-1440,12/04/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,26,Deceased,Simulated data based on regional conflict probability,11.0417,77.02696
+SIM-1441,13/04/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,38,Injured,Simulated data based on regional conflict probability,15.35907,76.2018
+SIM-1442,25/08/2023,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,59,Injured,Simulated data based on regional conflict probability,15.39093,76.05438
+SIM-1443,19/04/2022,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,46,Injured,Simulated data based on regional conflict probability,20.03735,79.27392
+SIM-1444,01/12/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,24,Injured,Simulated data based on regional conflict probability,26.17818,91.72513
+SIM-1445,20/03/2023,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,38,Injured,Simulated data based on regional conflict probability,15.29058,76.20022
+SIM-1446,27/07/2021,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,26,Injured,Simulated data based on regional conflict probability,12.54747,76.81442
+SIM-1447,24/08/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,23,Injured,Simulated data based on regional conflict probability,12.32893,76.59091
+SIM-1448,02/09/2023,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,20,Injured,Simulated data based on regional conflict probability,19.9752,79.30877
+SIM-1449,30/09/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,28,Injured,Simulated data based on regional conflict probability,12.35277,76.66794
+SIM-1450,07/01/2021,Elephant,Forest Fringe (Simulated),Angul,Odisha,32,Injured,Simulated data based on regional conflict probability,20.73889,85.13775
+SIM-1451,19/10/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,22,Injured,Simulated data based on regional conflict probability,26.04444,91.7968
+SIM-1452,16/07/2023,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,48,Injured,Simulated data based on regional conflict probability,20.66248,85.68355
+SIM-1453,09/01/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,45,Injured,Simulated data based on regional conflict probability,19.018,72.83958
+SIM-1454,25/09/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,37,Injured,Simulated data based on regional conflict probability,26.07864,91.68903
+SIM-1455,14/06/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,48,Deceased,Simulated data based on regional conflict probability,26.07715,91.81677
+SIM-1456,09/06/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,58,Injured,Simulated data based on regional conflict probability,12.27311,76.72018
+SIM-1457,04/12/2021,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,29,Injured,Simulated data based on regional conflict probability,19.87228,79.19109
+SIM-1458,05/05/2021,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,41,Deceased,Simulated data based on regional conflict probability,29.33339,79.52462
+SIM-1459,16/11/2020,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,49,Injured,Simulated data based on regional conflict probability,19.07495,72.79619
+SIM-1460,07/11/2024,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,33,Injured,Simulated data based on regional conflict probability,19.14775,72.78825
+SIM-1461,19/08/2020,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,63,Injured,Simulated data based on regional conflict probability,20.61843,85.63727
+SIM-1462,05/01/2024,Sloth Bear,Forest Fringe (Simulated),Dhenkanal,Odisha,65,Injured,Simulated data based on regional conflict probability,20.54741,85.67328
+SIM-1463,30/01/2024,Elephant,Forest Fringe (Simulated),Angul,Odisha,52,Deceased,Simulated data based on regional conflict probability,20.73074,85.09945
+SIM-1464,15/10/2021,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,69,Injured,Simulated data based on regional conflict probability,15.40108,76.11911
+SIM-1465,01/01/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,37,Injured,Simulated data based on regional conflict probability,26.18619,91.73576
+SIM-1466,24/02/2021,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,47,Deceased,Simulated data based on regional conflict probability,12.51151,75.73284
+SIM-1467,06/01/2022,Sloth Bear,Forest Fringe (Simulated),Koppal,Karnataka,25,Injured,Simulated data based on regional conflict probability,15.32855,76.08671
+SIM-1468,26/04/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,31,Injured,Simulated data based on regional conflict probability,11.06054,77.00259
+SIM-1469,19/05/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,44,Injured,Simulated data based on regional conflict probability,10.95649,76.9016
+SIM-1470,10/08/2023,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,70,Injured,Simulated data based on regional conflict probability,19.12812,72.79339
+SIM-1471,02/12/2020,Leopard,Forest Fringe (Simulated),Guwahati,Assam,37,Injured,Simulated data based on regional conflict probability,26.10399,91.71064
+SIM-1472,25/01/2022,Tiger,Forest Fringe (Simulated),Chandrapur,Maharashtra,31,Injured,Simulated data based on regional conflict probability,19.86364,79.34759
+SIM-1473,25/08/2024,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,57,Injured,Simulated data based on regional conflict probability,21.7254,80.23831
+SIM-1474,15/11/2023,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,23,Injured,Simulated data based on regional conflict probability,12.41046,75.70076
+SIM-1475,06/06/2024,Tiger,Forest Fringe (Simulated),Nainital,Uttarakhand,34,Injured,Simulated data based on regional conflict probability,29.31708,79.36937
+SIM-1476,17/12/2024,Elephant,Forest Fringe (Simulated),Kodagu,Karnataka,65,Injured,Simulated data based on regional conflict probability,12.45026,75.81564
+SIM-1477,18/12/2024,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,61,Injured,Simulated data based on regional conflict probability,11.06253,76.9046
+SIM-1478,15/08/2020,Elephant,Forest Fringe (Simulated),Angul,Odisha,23,Deceased,Simulated data based on regional conflict probability,20.8455,85.14374
+SIM-1479,26/11/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,23,Injured,Simulated data based on regional conflict probability,26.08639,91.821
+SIM-1480,16/11/2024,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,28,Injured,Simulated data based on regional conflict probability,12.56662,76.86303
+SIM-1481,10/08/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,63,Deceased,Simulated data based on regional conflict probability,12.19418,76.67281
+SIM-1482,06/08/2021,Leopard,Forest Fringe (Simulated),Guwahati,Assam,39,Injured,Simulated data based on regional conflict probability,26.21479,91.78676
+SIM-1483,10/10/2021,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,46,Injured,Simulated data based on regional conflict probability,12.38655,76.5338
+SIM-1484,15/08/2022,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,31,Injured,Simulated data based on regional conflict probability,12.33536,76.72355
+SIM-1485,27/06/2020,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,66,Injured,Simulated data based on regional conflict probability,12.28295,76.70906
+SIM-1486,15/06/2022,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,24,Injured,Simulated data based on regional conflict probability,18.97368,72.8168
+SIM-1487,14/12/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,39,Injured,Simulated data based on regional conflict probability,10.97105,76.89002
+SIM-1488,08/09/2023,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,48,Deceased,Simulated data based on regional conflict probability,10.95064,76.90747
+SIM-1489,22/09/2020,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,65,Injured,Simulated data based on regional conflict probability,21.88511,80.25771
+SIM-1490,04/06/2023,Tiger,Forest Fringe (Simulated),Mysuru,Karnataka,47,Injured,Simulated data based on regional conflict probability,12.38839,76.70372
+SIM-1491,17/03/2022,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,55,Injured,Simulated data based on regional conflict probability,12.48986,76.89527
+SIM-1492,02/09/2020,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,35,Injured,Simulated data based on regional conflict probability,11.05438,76.91501
+SIM-1493,12/11/2023,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,54,Injured,Simulated data based on regional conflict probability,19.10494,72.84723
+SIM-1494,04/03/2023,Leopard,Forest Fringe (Simulated),Guwahati,Assam,42,Injured,Simulated data based on regional conflict probability,26.14986,91.66459
+SIM-1495,29/12/2024,Leopard,Forest Fringe (Simulated),Guwahati,Assam,21,Injured,Simulated data based on regional conflict probability,26.15078,91.76936
+SIM-1496,10/12/2021,Elephant,Forest Fringe (Simulated),Coimbatore,Tamil Nadu,66,Deceased,Simulated data based on regional conflict probability,11.0156,76.96406
+SIM-1497,24/08/2021,Sloth Bear,Forest Fringe (Simulated),Balaghat,Madhya Pradesh,36,Injured,Simulated data based on regional conflict probability,21.72395,80.18346
+SIM-1498,24/12/2023,Leopard,Forest Fringe (Simulated),Mandya,Karnataka,47,Injured,Simulated data based on regional conflict probability,12.45439,76.79948
+SIM-1499,12/12/2023,Leopard,Forest Fringe (Simulated),Mumbai Suburban,Maharashtra,50,Injured,Simulated data based on regional conflict probability,19.09249,72.94013
