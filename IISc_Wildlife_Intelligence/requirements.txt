@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+pydeck
+scikit-learn
+joblib
+matplotlib
+seaborn
+requests
+geopy
+openpyxl
