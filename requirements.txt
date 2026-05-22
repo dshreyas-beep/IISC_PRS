@@ -1,0 +1,11 @@
+fastapi==0.110.0
+uvicorn[standard]==0.27.1
+numpy>=2.2
+osmnx>=2.0.0
+networkx>=3.3
+shapely>=2.0
+geopandas>=0.14
+torch
+pandas
+matplotlib
+seaborn

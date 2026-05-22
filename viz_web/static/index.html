@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WildSim — Ecological Telemetry · IISc CES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=Source+Code+Pro:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ─────────────────────────────────────────────────────────── */
+    :root {
+      --paper:      #f7f5f0;
+      --paper-1:    #f0ede6;
+      --paper-2:    #e8e4db;
+      --ink:        #1a1a18;
+      --ink-2:      #3d3d38;
+      --ink-3:      #6b6b62;
+      --ink-4:      #9a9a8e;
+      --rule:       #d4d0c8;
+      --rule-light: #e4e0d8;
+
+      --elephant-c: #6b4c11;
+      --leopard-c:  #8b2020;
+      --bear-c:     #3d5a3e;
+      --human-c:    #1e3a5f;
+
+      --accent:     #2c5f8a;
+      --accent-dim: rgba(44,95,138,.10);
+      --warn:       #8b4513;
+      --ok:         #2e6b3e;
+
+      --serif: 'Source Serif 4', Georgia, serif;
+      --sans:  'Source Sans 3', system-ui, sans-serif;
+      --mono:  'Source Code Pro', 'Courier New', monospace;
+
+      --r: 2px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--paper-1); }
+    ::-webkit-scrollbar-thumb { background: var(--rule); }
+
+    /* ── HEADER ──────────────────────────────────────────────────────────── */
+    .header {
+      background: var(--ink);
+      color: #e8e4db;
+      padding: 0 20px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-shrink: 0;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .inst-mark {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding-right: 20px;
+      border-right: 1px solid rgba(255,255,255,.15);
+    }
+    .inst-logo {
+      width: 30px; height: 30px;
+      border: 1.5px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .inst-name {
+      font-family: var(--serif);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: .3px;
+      line-height: 1.4;
+      color: rgba(232,228,219,.75);
+    }
+    .inst-name strong {
+      display: block;
+      font-weight: 600;
+      font-size: 12px;
+      color: #e8e4db;
+      letter-spacing: .2px;
+    }
+
+    .proj-title {
+      padding: 0 20px;
+      flex: 1;
+    }
+    .proj-title h1 {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: .2px;
+      color: #e8e4db;
+    }
+    .proj-title .sub {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: rgba(232,228,219,.48);
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .hdr-meta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-left: 20px;
+      border-left: 1px solid rgba(255,255,255,.15);
+    }
+    .hdr-pill {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: rgba(232,228,219,.55);
+      letter-spacing: .5px;
+    }
+    .hdr-pill span { color: #e8e4db; font-weight: 600; }
+
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .8px;
+      color: rgba(232,228,219,.48);
+      margin-left: 18px;
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4a9e6a;
+      flex-shrink: 0;
+    }
+
+    /* ── WORKSPACE ───────────────────────────────────────────────────────── */
+    .workspace {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      min-height: 0;
+      padding: 12px;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    /* ── PANELS ──────────────────────────────────────────────────────────── */
+    .left-panel, .right-panel {
+      width: 212px;
+      flex: 0 0 212px;
+      flex-shrink: 0;
+      min-height: 0;
+      background: var(--paper-1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .left-panel  { border-right: 1px solid var(--rule); }
+    .right-panel { border-left:  1px solid var(--rule); }
+
+    .ps {
+      padding: 12px 14px 14px;
+      border-bottom: 1px solid var(--rule-light);
+    }
+
+    .slabel {
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 10px;
+    }
+
+    /* ── FORM ────────────────────────────────────────────────────────────── */
+    .frow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 7px;
+      gap: 8px;
+    }
+    .frow2 { display: flex; gap: 8px; }
+    .frow2 .frow { flex: 1; margin-bottom: 0; }
+    .flabel { font-size: 11px; color: var(--ink-3); white-space: nowrap; }
+
+    .input-select,
+    .input-number {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: var(--r);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 4px 7px;
+      outline: none;
+      transition: border-color .15s;
+    }
+    .input-select { flex: 1; }
+    .input-number { width: 56px; text-align: center; }
+    .input-select:focus,
+    .input-number:focus { border-color: var(--accent); }
+
+    /* ── SPECIES GRID ────────────────────────────────────────────────────── */
+    .sp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+    }
+    .sp-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: var(--r);
+      padding: 7px 5px 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .em { font-size: 17px; line-height: 1; }
+    .sn {
+      font-size: 8.5px;
+      font-family: var(--sans);
+      font-weight: 600;
+      letter-spacing: .4px;
+      color: var(--ink-3);
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .sp-card .input-number { width: 44px; font-size: 11px; }
+
+    /* ── TOGGLES ─────────────────────────────────────────────────────────── */
+    .tog-list { display: flex; flex-direction: column; }
+    .tog-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-bottom: 1px solid var(--rule-light);
+    }
+    .tog-row:last-child { border-bottom: none; }
+    .tog-row label:first-child { font-size: 11px; color: var(--ink-2); }
+
+    .sw { position: relative; display: inline-block; width: 28px; height: 15px; flex-shrink: 0; }
+    .sw input { opacity: 0; width: 0; height: 0; }
+    .sl {
+      position: absolute; inset: 0;
+      background: var(--rule);
+      border-radius: 15px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .sl::before {
+      content: '';
+      position: absolute;
+      width: 10px; height: 10px;
+      left: 2.5px; top: 2.5px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform .15s;
+      box-shadow: 0 1px 2px rgba(0,0,0,.18);
+    }
+    .sw input:checked + .sl { background: var(--accent); }
+    .sw input:checked + .sl::before { transform: translateX(13px); }
+
+    /* ── BUTTON ──────────────────────────────────────────────────────────── */
+    .btn-apply {
+      width: 100%;
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      border-radius: var(--r);
+      padding: 8px 0;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background .15s;
+    }
+    .btn-apply:hover { background: var(--accent); }
+    .btn-apply:active { opacity: .85; }
+
+    /* ── CANVAS ──────────────────────────────────────────────────────────── */
+    .canvas-wrap {
+      flex: 1;
+      min-height: 0;
+      min-width: 0;
+      overflow: auto;
+      position: relative;
+      display: flex;
+      background: var(--paper-2);
+      border: 1px solid #ccc;
+    }
+
+    /* Strictly contains the tall world canvas. */
+    .canvas-scroller {
+      position: relative;
+      flex: 1;
+      min-width: 1400px;
+      min-height: 4200px;
+      background: var(--paper-2);
+    }
+    canvas#sim {
+      position: relative;
+      display: block;
+      min-width: 1400px;
+      min-height: 4200px;
+      transform-origin: top left;
+      transition: opacity .25s ease;
+    }
+    canvas#sim3d {
+      position: absolute; inset: 0;
+      display: block;
+      min-width: 1400px;
+      min-height: 4200px;
+      transform-origin: top left;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s ease;
+      background: #d8d2c4;
+    }
+    .view-mode-badge {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      z-index: 4;
+      background: rgba(26,26,24,.82);
+      color: #f7f5f0;
+      border: 1px solid rgba(247,245,240,.22);
+      border-radius: var(--r);
+      padding: 5px 8px;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .8px;
+      pointer-events: none;
+      box-shadow: 0 3px 14px rgba(0,0,0,.18);
+    }
+
+    /* ── MAP HUD ─────────────────────────────────────────────────────────── */
+    .hud-tl, .hud-br {
+      position: absolute;
+      font-family: var(--mono);
+      font-size: 9px;
+      line-height: 1.7;
+      color: rgba(26,26,24,.40);
+      letter-spacing: .5px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .hud-tl { top: 10px; left: 12px; }
+    .hud-br { bottom: 10px; right: 12px; text-align: right; }
+
+    /* ── MAP LEGEND ──────────────────────────────────────────────────────── */
+    .map-legend {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      background: rgba(247,245,240,.90);
+      border: 1px solid var(--rule);
+      border-radius: var(--r);
+      padding: 7px 10px;
+      z-index: 3;
+    }
+    .leg-title {
+      font-family: var(--sans);
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 5px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--rule-light);
+    }
+    .leg-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--sans);
+      font-size: 10px;
+      color: var(--ink-2);
+      margin-top: 3px;
+    }
+    .leg-sw { width: 12px; height: 8px; border-radius: 1px; flex-shrink: 0; }
+
+    /* ── TOOLTIP ─────────────────────────────────────────────────────────── */
+    .tooltip {
+      position: absolute;
+      display: none;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-top: 2px solid var(--accent);
+      border-radius: var(--r);
+      padding: 10px 12px;
+      pointer-events: none;
+      z-index: 20;
+      min-width: 168px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.09);
+    }
+    .tip-name {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 7px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule-light);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    #tip-rows { display: flex; flex-direction: column; gap: 4px; }
+    .tip-row { display: flex; justify-content: space-between; gap: 10px; font-family: var(--mono); font-size: 10px; }
+    .tip-key { color: var(--ink-3); }
+    .tip-val { color: var(--ink); font-weight: 600; }
+
+    /* ── RIGHT PANEL ─────────────────────────────────────────────────────── */
+    .pop-card {
+      padding: 14px 14px 12px;
+      border-bottom: 1px solid var(--rule-light);
+      background: #fff;
+    }
+    .pop-card .slabel { margin-bottom: 5px; }
+    .pop-total {
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .pop-step {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: var(--ink-4);
+      letter-spacing: .6px;
+      margin-top: 3px;
+    }
+
+    .sp-breakdown {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--rule-light);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .sp-bar { display: flex; flex-direction: column; gap: 3px; }
+    .sp-bar-h { display: flex; justify-content: space-between; align-items: baseline; }
+    .sp-bar-name {
+      font-size: 11px; font-weight: 500; color: var(--ink-2);
+      display: flex; align-items: center; gap: 5px;
+    }
+    .sp-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .sp-bar-num { font-family: var(--mono); font-size: 11px; font-weight: 600; }
+    .sp-bar-bg  { height: 3px; background: var(--rule-light); border-radius: 1px; overflow: hidden; }
+    .sp-bar-fill { height: 100%; border-radius: 1px; transition: width .5s ease; }
+
+    .zone-activity {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--rule-light);
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .zc {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--rule-light);
+    }
+    .zc:last-child { border-bottom: none; }
+    .zc-left { display: flex; flex-direction: column; gap: 1px; }
+    .zc-name { font-size: 11px; font-weight: 500; color: var(--ink-2); }
+    .zc-sub  { font-family: var(--mono); font-size: 9px; color: var(--ink-4); }
+    .zc-count {
+      font-family: var(--mono);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      min-width: 26px;
+      text-align: right;
+    }
+
+    .eco-panel {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--rule-light);
+    }
+    .eco-gauges {
+      display: flex;
+      border: 1px solid var(--rule);
+      border-radius: var(--r);
+      overflow: hidden;
+      margin-top: 2px;
+    }
+    .eco-g {
+      flex: 1;
+      padding: 8px 5px;
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      background: #fff;
+      border-right: 1px solid var(--rule);
+      text-align: center;
+    }
+    .eco-g:last-child { border-right: none; }
+    .eco-g-val { font-family: var(--mono); font-size: 14px; font-weight: 600; color: var(--ink); }
+    .eco-g-lbl { font-size: 8px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; color: var(--ink-4); }
+
+    .carry-wrap {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--rule-light);
+    }
+    .carry-lbl {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 7px;
+    }
+    .carry-lbl span:last-child {
+      font-family: var(--mono);
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: 0;
+      text-transform: none;
+      font-weight: 600;
+    }
+    .carry-track { height: 4px; background: var(--rule-light); border-radius: 1px; overflow: hidden; }
+    .carry-fill  { height: 100%; background: var(--accent); border-radius: 1px; transition: width .5s ease; }
+
+    /* SDSS Intent Stats Panel */
+    .intent-panel {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--rule-light);
+    }
+
+    .log-panel {
+      padding: 12px 14px;
+      flex: 1;
+      display: flex; flex-direction: column; gap: 8px;
+      min-height: 80px;
+    }
+    .log-list { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 0; }
+    .log-entry {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: var(--ink-2);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--rule-light);
+      line-height: 1.5;
+    }
+    .log-entry:last-child { border-bottom: none; }
+
+    .agent-emoji {
+      font-size: 20px;
+      text-align: center;
+      line-height: 20px;
+      filter: drop-shadow(0px 0px 2px rgba(255,255,255,0.8));
+    }
+
+    .pulse-marker {
+      width: 14px;
+      height: 14px;
+      background: rgba(192, 57, 43, 0.95);
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      box-shadow: 0 0 0 rgba(192, 57, 43, 0.4);
+      animation: pulse 1.4s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.55); }
+      70% { box-shadow: 0 0 0 12px rgba(192, 57, 43, 0.0); }
+      100% { box-shadow: 0 0 0 0 rgba(192, 57, 43, 0.0); }
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────────── */
+    footer {
+      height: 26px;
+      background: var(--paper-1);
+      border-top: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--ink-4);
+      letter-spacing: .4px;
+      flex-shrink: 0;
+    }
+    .fr { display: flex; gap: 20px; }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="inst-mark">
+    <div class="inst-logo">🌿</div>
+    <div class="inst-name">
+      <strong>IISc · Centre for Ecological Sciences</strong>
+      Human–Wildlife Interaction Programme
+    </div>
+  </div>
+  <div class="proj-title">
+    <h1>WildSim — Agent-Based Ecological Telemetry</h1>
+    <span class="sub" id="stageTitle">TOPOLOGY: —</span>
+  </div>
+  <div class="hdr-meta">
+    <div class="hdr-pill">STEP <span id="hud-step">00000</span></div>
+    <div class="hdr-pill">WGS84 <span id="hud-coords">12.8008 N / 77.5756 E</span></div>
+  </div>
+  <div class="status-badge">
+    <div class="dot" id="statusDot"></div>
+    <span id="connBadge">CONNECTING</span>
+  </div>
+</header>
+
+<div class="workspace">
+
+  <div class="left-panel">
+    <div class="ps">
+      <div class="slabel">Simulation Parameters</div>
+      <div class="frow">
+        <div class="flabel">Topology</div>
+        <select id="topology" class="input-select"></select>
+      </div>
+      <div class="frow2">
+        <div class="frow">
+          <div class="flabel">Seed</div>
+          <input type="number" id="seed" class="input-number" value="42" min="1"/>
+        </div>
+        <div class="frow">
+          <div class="flabel">FPS</div>
+          <input type="number" id="fps" class="input-number" value="3" min="1" max="60"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="ps">
+      <div class="slabel">Initial Population (n)</div>
+      <div class="tog-row" style="padding-top:0;margin-bottom:8px;">
+        <label>BNP Baseline</label>
+        <label class="sw"><input type="checkbox" id="useBaseline" checked><span class="sl"></span></label>
+      </div>
+      <div class="sp-grid">
+        <div class="sp-card">
+          <div class="em">🐘</div>
+          <div class="sn">Elephant</div>
+          <input type="number" id="c_el" class="input-number" value="100" min="0" max="300"/>
+        </div>
+        <div class="sp-card">
+          <div class="em">🐆</div>
+          <div class="sn">Leopard</div>
+          <input type="number" id="c_lp" class="input-number" value="18" min="0" max="80"/>
+        </div>
+        <div class="sp-card">
+          <div class="em">🐻</div>
+          <div class="sn">Sloth Bear</div>
+          <input type="number" id="c_sb" class="input-number" value="45" min="0" max="120"/>
+        </div>
+        <div class="sp-card">
+          <div class="em">T</div>
+          <div class="sn">Tiger</div>
+          <input type="number" id="c_tg" class="input-number" value="33" min="0" max="80"/>
+        </div>
+        <div class="sp-card">
+          <div class="em">L</div>
+          <div class="sn">Lion</div>
+          <input type="number" id="c_li" class="input-number" value="20" min="0" max="80"/>
+        </div>
+        <div class="sp-card">
+          <div class="em">👤</div>
+          <div class="sn">Human</div>
+          <input type="number" id="c_hu" class="input-number" value="0" min="0" max="200"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="ps">
+      <div class="slabel">Display Layers</div>
+      <div class="tog-list">
+        <div class="tog-row">
+          <label>Zone Regions</label>
+          <label class="sw"><input type="checkbox" id="showZones" checked><span class="sl"></span></label>
+        </div>
+        <div class="tog-row">
+          <label>Agent Intent</label>
+          <label class="sw"><input type="checkbox" id="showIntent" checked><span class="sl"></span></label>
+        </div>
+        <div class="tog-row">
+          <label>Movement Trails</label>
+          <label class="sw"><input type="checkbox" id="showTrails" checked><span class="sl"></span></label>
+        </div>
+        <div class="tog-row">
+          <label>Zone Labels</label>
+          <label class="sw"><input type="checkbox" id="showLabels" checked><span class="sl"></span></label>
+        </div>
+        <div class="tog-row">
+          <label>3D Terrain</label>
+          <label class="sw"><input type="checkbox" id="show3D" checked><span class="sl"></span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="ps">
+      <div class="slabel">Forensic Analytics</div>
+      <div class="tog-list">
+        <div class="tog-row">
+          <label>Ghost Trails (Click Agent)</label>
+          <label class="sw"><input type="checkbox" id="showGhostTrails" checked><span class="sl"></span></label>
+        </div>
+        <div class="tog-row">
+          <label>Telemetric Probe Mode</label>
+          <label class="sw"><input type="checkbox" id="showProbe"><span class="sl"></span></label>
+        </div>
+      </div>
+      <div class="frow" style="margin-top: 8px;">
+        <div class="flabel">Probe Filter</div>
+        <select id="probeFilter" class="input-select">
+          <option value="all">All Agents</option>
+          <option value="thirsty">Severe Thirst (>70%)</option>
+          <option value="starving">Starving (<30%)</option>
+          <option value="stressed">Stressed / Conflict</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="ps">
+      <button class="btn-apply" id="apply">↺  Reset Simulation</button>
+    </div>
+  </div>
+
+  <div class="canvas-wrap">
+    <div class="canvas-scroller" id="cw">
+      <canvas id="sim"></canvas>
+      <canvas id="sim3d"></canvas>
+      <div class="hud-tl" id="mapHud">WGS84 Bannerghatta BNP<br>Scale 1 : 50 000 / UTM Zone 43N</div>
+      <div class="hud-br">WildSim v2.0 · IISc CES<br>Agent-Based Spatial Model</div>
+      <div class="view-mode-badge" id="viewModeBadge">3D TERRAIN</div>
+
+      <div class="map-legend">
+        <div class="leg-title">Land Cover</div>
+        <div class="leg-row"><div class="leg-sw" style="background:#5a8fa8"></div>Water Body</div>
+        <div class="leg-row"><div class="leg-sw" style="background:#7a9e5a"></div>Agriculture</div>
+        <div class="leg-row"><div class="leg-sw" style="background:#b08060"></div>Settlement</div>
+        <div class="leg-row"><div class="leg-sw" style="background:#4a6e3a"></div>Forest</div>
+        <div class="leg-row" style="margin-top: 6px;"><div class="leg-sw" style="background:#3c3732; height: 3px;"></div>Animal Bridge/Fence</div>
+      </div>
+
+      <div id="tip" class="tooltip">
+        <div class="tip-name" id="tip-name"></div>
+        <div id="tip-rows"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-panel">
+    <div class="pop-card">
+      <div class="slabel">Total Agents (alive)</div>
+      <div class="pop-total" id="pop-total">0</div>
+      <div class="pop-step" id="pop-step">STEP 0 · 4 SPECIES</div>
+    </div>
+
+    <div class="sp-breakdown">
+      <div class="slabel">Species Distribution</div>
+      <div class="sp-bar">
+        <div class="sp-bar-h">
+          <div class="sp-bar-name"><span class="sp-dot" style="background:var(--elephant-c)"></span>Elephant</div>
+          <div class="sp-bar-num" id="cnt-el" style="color:var(--elephant-c)">0</div>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" id="bar-el" style="width:0%;background:var(--elephant-c)"></div></div>
+      </div>
+      <div class="sp-bar">
+        <div class="sp-bar-h">
+          <div class="sp-bar-name"><span class="sp-dot" style="background:var(--leopard-c)"></span>Leopard</div>
+          <div class="sp-bar-num" id="cnt-lp" style="color:var(--leopard-c)">0</div>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" id="bar-lp" style="width:0%;background:var(--leopard-c)"></div></div>
+      </div>
+      <div class="sp-bar">
+        <div class="sp-bar-h">
+          <div class="sp-bar-name"><span class="sp-dot" style="background:#9c3b24"></span>Tiger</div>
+          <div class="sp-bar-num" id="cnt-tg" style="color:#9c3b24">0</div>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" id="bar-tg" style="width:0%;background:#9c3b24"></div></div>
+      </div>
+      <div class="sp-bar">
+        <div class="sp-bar-h">
+          <div class="sp-bar-name"><span class="sp-dot" style="background:#8f6a2d"></span>Lion</div>
+          <div class="sp-bar-num" id="cnt-li" style="color:#8f6a2d">0</div>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" id="bar-li" style="width:0%;background:#8f6a2d"></div></div>
+      </div>
+      <div class="sp-bar">
+        <div class="sp-bar-h">
+          <div class="sp-bar-name"><span class="sp-dot" style="background:var(--bear-c)"></span>Sloth Bear</div>
+          <div class="sp-bar-num" id="cnt-sb" style="color:var(--bear-c)">0</div>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" id="bar-sb" style="width:0%;background:var(--bear-c)"></div></div>
+      </div>
+      <div class="sp-bar">
+        <div class="sp-bar-h">
+          <div class="sp-bar-name"><span class="sp-dot" style="background:var(--human-c)"></span>Human</div>
+          <div class="sp-bar-num" id="cnt-hu" style="color:var(--human-c)">0</div>
+        </div>
+        <div class="sp-bar-bg"><div class="sp-bar-fill" id="bar-hu" style="width:0%;background:var(--human-c)"></div></div>
+      </div>
+    </div>
+
+    <div class="zone-activity">
+      <div class="slabel">Zone Occupancy</div>
+      <div class="zc">
+        <div class="zc-left">
+          <div class="zc-name">Water Sources</div>
+          <div class="zc-sub" id="za-water">—</div>
+        </div>
+        <div class="zc-count" id="zc-water">0</div>
+      </div>
+      <div class="zc">
+        <div class="zc-left">
+          <div class="zc-name">Croplands</div>
+          <div class="zc-sub" id="za-crop">—</div>
+        </div>
+        <div class="zc-count" id="zc-crop">0</div>
+      </div>
+      <div class="zc">
+        <div class="zc-left">
+          <div class="zc-name">Settlements</div>
+          <div class="zc-sub" id="za-settle">—</div>
+        </div>
+        <div class="zc-count" id="zc-settle">0</div>
+      </div>
+    </div>
+
+    <div class="eco-panel">
+      <div class="slabel">Ecosystem Indices</div>
+      <div class="eco-gauges">
+        <div class="eco-g"><span class="eco-g-val" id="eco-bal">—</span><span class="eco-g-lbl">Health</span></div>
+        <div class="eco-g"><span class="eco-g-val" id="eco-conflict">—</span><span class="eco-g-lbl">Conflict</span></div>
+        <div class="eco-g"><span class="eco-g-val" id="eco-range">—</span><span class="eco-g-lbl">Range</span></div>
+      </div>
+    </div>
+
+    <div class="carry-wrap">
+      <div class="carry-lbl">
+        <span>Carrying Capacity</span>
+        <span id="carry-pct">0%</span>
+      </div>
+      <div class="carry-track"><div class="carry-fill" id="carry-fill" style="width:0%"></div></div>
+    </div>
+
+    <div class="intent-panel">
+      <div class="slabel">Behavioral Drivers</div>
+      <div id="intent-stats" style="font-family: var(--mono); font-size: 10px; color: var(--ink-2); display: flex; flex-direction: column; gap: 6px;">
+        <span style="color: var(--ink-4)">Awaiting telemetry...</span>
+      </div>
+    </div>
+
+    <div class="log-panel">
+      <div class="slabel">Event Log</div>
+      <div class="log-list" id="log-list"></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>Indian Institute of Science · Centre for Ecological Sciences · Human–Wildlife Interaction Programme</span>
+  <div class="fr">
+    <span id="fp">N = 0</span>
+    <span id="fs">t = 0</span>
+    <span>WildSim v2.0</span>
+  </div>
+</footer>
+
+<script src="/static/main.js?v=11"></script>
+</body>
+</html>

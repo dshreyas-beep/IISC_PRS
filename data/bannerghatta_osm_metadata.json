@@ -1,0 +1,26 @@
+{
+  "source": "OpenStreetMap via Overpass API",
+  "bbox": {
+    "north": 12.8229972,
+    "south": 12.3443525,
+    "west": 77.4828815,
+    "east": 77.6368603
+  },
+  "declared_area_sq_km": 260.51,
+  "declared_area_acres": 65127.5,
+  "grid": [
+    240,
+    720
+  ],
+  "layers": {
+    "0": "water",
+    "1": "crop/agriculture",
+    "2": "livestock",
+    "3": "settlement/buildings",
+    "4": "roads/barriers",
+    "5": "forest/cover",
+    "6": "terrain proxy slope"
+  },
+  "graph": "C:\\Users\\USER-2\\Desktop\\SIMB\\data\\bannerghatta_graph.json",
+  "note": "Use with attribution: OpenStreetMap contributors. Movement graph built with OSMnx when installed."
+}

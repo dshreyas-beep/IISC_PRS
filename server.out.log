@@ -1,0 +1,58 @@
+[SimManager] Initialized
+[Server] Starting up...
+[SimManager] Resetting sim: topo=bannerghatta_osm, seed=1, counts=None
+[SimManager] Simulation reset complete
+[SimManager] Started simulation loop
+INFO:     127.0.0.1:56171 - "GET /api/config HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56194 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56194 - "GET /static/main.js?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56194 - "GET /api/topologies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56194 - "GET /api/config HTTP/1.1" 200 OK
+[WebSocket] Client connected
+INFO:     127.0.0.1:56207 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56207 - "GET /api/topologies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56207 - "GET /api/config HTTP/1.1" 200 OK
+[WebSocket] Client connected
+INFO:     127.0.0.1:56240 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56240 - "GET /static/main.js?v=8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56240 - "GET /api/topologies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56240 - "GET /api/config HTTP/1.1" 200 OK
+[WebSocket] Client connected
+INFO:     127.0.0.1:56240 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56402 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56402 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56879 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56879 - "GET /static/main.js?v=8 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56879 - "GET /api/topologies HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56879 - "GET /api/config HTTP/1.1" 200 OK
+[WebSocket] Client connected
+[Server] Reset requested: {'topology': 'bannerghatta_osm', 'seed': 1, 'fps': 3, 'use_bannerghatta_baseline': True}
+[SimManager] Resetting sim: topo=bannerghatta_osm, seed=1, counts=None
+[SimManager] Simulation reset complete
+[SimManager] Started simulation loop
+INFO:     127.0.0.1:56888 - "POST /api/reset HTTP/1.1" 200 OK
+[Server] Reset requested: {'topology': 'bannerghatta_osm', 'seed': 1, 'fps': 3, 'use_bannerghatta_baseline': True}
+[SimManager] Resetting sim: topo=bannerghatta_osm, seed=1, counts=None
+[SimManager] Simulation reset complete
+[SimManager] Started simulation loop
+INFO:     127.0.0.1:56889 - "POST /api/reset HTTP/1.1" 200 OK
+[Server] Reset requested: {'topology': 'bannerghatta_osm', 'seed': 1, 'fps': 3, 'use_bannerghatta_baseline': True}
+[SimManager] Resetting sim: topo=bannerghatta_osm, seed=1, counts=None
+[SimManager] Simulation reset complete
+[SimManager] Started simulation loop
+INFO:     127.0.0.1:56890 - "POST /api/reset HTTP/1.1" 200 OK
+[Server] Reset requested: {'topology': 'bannerghatta_osm', 'seed': 1, 'fps': 3, 'use_bannerghatta_baseline': True}
+[SimManager] Resetting sim: topo=bannerghatta_osm, seed=1, counts=None
+[SimManager] Simulation reset complete
+[SimManager] Started simulation loop
+INFO:     127.0.0.1:56891 - "POST /api/reset HTTP/1.1" 500 Internal Server Error
+[Server] Reset requested: {'topology': 'bannerghatta_osm', 'seed': 1, 'fps': 3, 'use_bannerghatta_baseline': True}
+[SimManager] Resetting sim: topo=bannerghatta_osm, seed=1, counts=None
+[SimManager] Simulation reset complete
+[SimManager] Started simulation loop
+INFO:     127.0.0.1:56892 - "POST /api/reset HTTP/1.1" 500 Internal Server Error
+[Server] Reset requested: {'topology': 'bannerghatta_osm', 'seed': 1, 'fps': 3, 'use_bannerghatta_baseline': True}
+[SimManager] Resetting sim: topo=bannerghatta_osm, seed=1, counts=None
+[SimManager] Simulation reset complete
+[SimManager] Started simulation loop
+INFO:     127.0.0.1:56893 - "POST /api/reset HTTP/1.1" 500 Internal Server Error

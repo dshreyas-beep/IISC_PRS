@@ -1,0 +1,18 @@
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# Simulation Data & ML Tensors
+*.csv
+*.npz
+*.npy
+*.pt
+*.pth
+*.pkl
+
+# OS Clutter
+.DS_Store
+Thumbs.db
