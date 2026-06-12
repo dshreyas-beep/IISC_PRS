@@ -1,46 +1,82 @@
 """
 trainer.py
-Reinforcement Learning Optimizer
+PPO Reinforcement Learning Optimizer
 """
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import random
+from torch.distributions import Normal
+import numpy as np
 
 class AgentTrainer:
-    def __init__(self, brain, learning_rate=0.001, gamma=0.95, epsilon=1.0, epsilon_decay=0.995):
+    def __init__(self, brain, learning_rate=3e-4, gamma=0.99, clip_ratio=0.2, ppo_epochs=4):
         self.brain = brain
         self.optimizer = optim.Adam(self.brain.parameters(), lr=learning_rate)
-        self.loss_function = nn.MSELoss()
-        
         self.gamma = gamma
-        self.epsilon = epsilon
-        self.epsilon_min = 0.01
-        self.epsilon_decay = epsilon_decay
+        self.clip_ratio = clip_ratio
+        self.ppo_epochs = ppo_epochs
+        
+        self.memory = []
 
-    def choose_action(self, state_tensor, num_actions=4):
-        if random.random() < self.epsilon:
-            return random.randint(0, num_actions - 1)
-        else:
-            with torch.no_grad():
-                q_values = self.brain(state_tensor)
-                return torch.argmax(q_values).item()
-
-    def learn(self, state, action, reward, next_state, done):
-        current_q = self.brain(state)[action]
-
+    def choose_action(self, state_tensor):
         with torch.no_grad():
+            # Add batch dimension
+            state_tensor = state_tensor.unsqueeze(0)
+            mean, std, value = self.brain(state_tensor)
+            dist = Normal(mean, std)
+            action = dist.sample()
+            log_prob = dist.log_prob(action).sum(dim=-1)
+        # action is shape (1, action_dim), so action.numpy()[0] returns the action_dim vector
+        return action.numpy()[0], log_prob.numpy()[0], value.numpy()[0]
+
+    def remember(self, state, action, log_prob, reward, value, done):
+        self.memory.append((state, action, log_prob, reward, value, done))
+
+    def learn(self):
+        if len(self.memory) == 0:
+            return
+            
+        states, actions, old_log_probs, rewards, values, dones = zip(*self.memory)
+        
+        # Convert to tensors
+        states = torch.cat(states)
+        actions = torch.tensor(np.array(actions), dtype=torch.float32)
+        old_log_probs = torch.tensor(old_log_probs, dtype=torch.float32)
+        rewards = torch.tensor(rewards, dtype=torch.float32)
+        values = torch.tensor(values, dtype=torch.float32)
+        dones = torch.tensor(dones, dtype=torch.float32)
+
+        # Compute advantages
+        returns = []
+        discounted_sum = 0
+        for reward, done in zip(reversed(rewards), reversed(dones)):
             if done:
-                target_q = torch.tensor(reward, dtype=torch.float32)
-            else:
-                max_next_q = torch.max(self.brain(next_state))
-                target_q = reward + (self.gamma * max_next_q)
+                discounted_sum = 0
+            discounted_sum = reward + (self.gamma * discounted_sum)
+            returns.insert(0, discounted_sum)
+        
+        returns = torch.tensor(returns, dtype=torch.float32)
+        advantages = returns - values
+        advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
 
-        loss = self.loss_function(current_q, target_q)
-
-        self.optimizer.zero_grad()
-        loss.backward()
-        self.optimizer.step()
-
-        if self.epsilon > self.epsilon_min:
-            self.epsilon *= self.epsilon_decay
+        # PPO Update
+        for _ in range(self.ppo_epochs):
+            mean, std, state_values = self.brain(states)
+            dist = Normal(mean, std)
+            log_probs = dist.log_prob(actions).sum(dim=-1)
+            
+            ratios = torch.exp(log_probs - old_log_probs)
+            
+            surr1 = ratios * advantages
+            surr2 = torch.clamp(ratios, 1.0 - self.clip_ratio, 1.0 + self.clip_ratio) * advantages
+            actor_loss = -torch.min(surr1, surr2).mean()
+            
+            critic_loss = nn.MSELoss()(state_values.squeeze(), returns)
+            
+            loss = actor_loss + 0.5 * critic_loss
+            
+            self.optimizer.zero_grad()
+            loss.backward()
+            self.optimizer.step()
+            
+        self.memory.clear()

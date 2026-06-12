@@ -39,6 +39,7 @@ class Agent:
         # Social Structure
         self.herd_id = None
         self.is_leader = False
+        self.fear_level = 0.0
 
         # ==========================================
         # 🛡️ CONFLICT RULES & TIMERS (UPDATED)
@@ -62,23 +63,25 @@ class Agent:
 
         if species in RL_SPECIES:
             AnimalBrain, AgentTrainer, RewardCalculator = _load_ml_stack()
-            self.brain = AnimalBrain(input_size=5, output_size=4)
+            self.brain = AnimalBrain(input_size=5)
         
         if species == "elephant":
-            self.trainer = AgentTrainer(brain=self.brain, learning_rate=0.001, epsilon_decay=0.9995)
+            self.trainer = AgentTrainer(brain=self.brain)
             self.rewards = RewardCalculator(max_hunger=150.0, conflict_threshold=3.0)
         elif species == "leopard":
-            self.trainer = AgentTrainer(brain=self.brain, learning_rate=0.002, epsilon_decay=0.9995)
+            self.trainer = AgentTrainer(brain=self.brain)
             self.rewards = RewardCalculator(max_hunger=80.0, conflict_threshold=2.0)
         elif species == "sloth_bear":
-            self.trainer = AgentTrainer(brain=self.brain, learning_rate=0.0015, epsilon_decay=0.9995)
+            self.trainer = AgentTrainer(brain=self.brain)
             self.rewards = RewardCalculator(max_hunger=100.0, conflict_threshold=1.5)
         elif species == "human":
             # Humans now get a brain so they can learn the peace-treaty rewards
-            self.trainer = AgentTrainer(brain=self.brain, learning_rate=0.001, epsilon_decay=0.9995)
+            self.trainer = AgentTrainer(brain=self.brain)
             self.rewards = RewardCalculator(max_hunger=100.0, conflict_threshold=1.0)
         self.last_state = None
         self.last_action = None
+        self.last_log_prob = None
+        self.last_value = None
 
     def can_attack(self, target_agent, current_tick: int) -> bool:
         """Evaluates if this agent is biologically allowed to attack the target."""
@@ -120,7 +123,8 @@ class Agent:
                 "thirst": self.thirst,
                 "age": self.age,
                 "alive": self.alive,
-                "mode": self.mode
+                "mode": self.mode,
+                "fear_level": getattr(self, "fear_level", 0.0)
             },
             "herd_id": self.herd_id,
             "is_leader": self.is_leader

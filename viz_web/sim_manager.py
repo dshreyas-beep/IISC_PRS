@@ -89,6 +89,7 @@ class SimManager:
         return {
             "type": "state",
             "t": self.sim.tick, 
+            "season": getattr(self.sim, "season", "wet"),
             "agents": [
                 {
                     "id": a.id,

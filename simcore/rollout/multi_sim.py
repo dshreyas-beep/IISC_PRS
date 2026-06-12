@@ -54,6 +54,7 @@ class MultiAgentSim:
         self.np_rng = np.random.default_rng(seed)
         self.tick   = 0
         self.is_night      = False 
+        self.season        = "wet"
         self.topology_name = topology_config["name"]
         self.region_metadata = self._build_region_metadata()
 
@@ -362,8 +363,9 @@ class MultiAgentSim:
 
         for w in active_waters:
             r = WATER_BASIN_MAX_RADIUS * w["intensity"]
-            drain = sum(0.005 for a in alive_elephants if math.hypot(a.x - w["cx"], a.y - w["cy"]) <= r + 8)
-            drain += sum(0.001 for a in alive_humans if math.hypot(a.x - w["cx"], a.y - w["cy"]) <= r + 8)
+            drain_multiplier = 3.0 if getattr(self, "season", "wet") == "dry" else 1.0
+            drain = sum(0.005 for a in alive_elephants if math.hypot(a.x - w["cx"], a.y - w["cy"]) <= r + 8) * drain_multiplier
+            drain += sum(0.001 for a in alive_humans if math.hypot(a.x - w["cx"], a.y - w["cy"]) <= r + 8) * drain_multiplier
             
             w["intensity"] = max(0.0, w["intensity"] - drain)
             
@@ -393,7 +395,7 @@ class MultiAgentSim:
 
             c["intensity"] -= (e_near * 0.05) 
             c["intensity"] += (h_near * 0.02) 
-            c["intensity"] -= 0.001           
+            c["intensity"] -= 0.001          
 
             c["intensity"] = min(1.0, max(0.0, c["intensity"]))
             if c["intensity"] < 0.05:
@@ -647,49 +649,54 @@ class MultiAgentSim:
         try:
             self.tick   += 1
             self.is_night = (self.tick % 800) > 400
+            if self.tick % 6000 == 0:
+                self.season = "dry" if getattr(self, "season", "wet") == "wet" else "wet"
             self.world.step()
 
             self._update_dynamic_resources()
 
             if self.tick % 10 == 0: self._update_analytics()
 
-            if self.tick % 100 == 0:
-                new_agents        = []
-                current_humans    = len([a for a in self.agents if a.species == "human" and getattr(a, "alive", True)])
-                current_elephants = len([a for a in self.agents if a.species == "elephant" and getattr(a, "alive", True)])
+            # --- EXTERNAL AGENT INJECTION ---
+            # Replaces the flawed reproduction/cloning mechanic.
+            # Agents now wander in from the map boundaries to replenish the ecosystem
+            # up to the baseline carrying capacity defined in species_counts.
+            if self.tick % 150 == 0:
+                new_agents = []
+                current_counts = {}
+                for a in self.agents:
+                    if getattr(a, "alive", True):
+                        current_counts[a.species] = current_counts.get(a.species, 0) + 1
 
-                for agent in self.agents:
-                    if not getattr(agent, "alive", True) or getattr(agent, "migrating", False): continue
-
-                    if agent.species == "human" and agent.energy > 60.0 and current_humans < MAX_HUMANS:
-                        new_h = make_agent(self.agent_id_counter, self.world, "human")
-                        new_h.x, new_h.y = agent.x + self.rng.uniform(-2, 2), agent.y + self.rng.uniform(-2, 2)
-                        new_h.home_x, new_h.home_y, new_h.group_id = agent.home_x, agent.home_y, getattr(agent, "group_id", 0)
-                        new_h.eco_mods = get_ecological_modifiers("human", self.topology_name)
-                        new_h.return_home_timer, new_h.attack_cooldown, new_h.migrating = 0, 0, False
-                        new_h.heading = self.rng.uniform(0, 2 * math.pi)
-                        new_h.weight = 65.0
-                        self._snap_agent_to_graph(new_h)
+                for species, target_count in self.species_counts.items():
+                    if current_counts.get(species, 0) < target_count:
+                        new_a = make_agent(self.agent_id_counter, self.world, species)
+                        new_a.eco_mods = get_ecological_modifiers(species, self.topology_name)
+                        new_a.weight = float(SPECIES_WEIGHTS_KG.get(species, 25.0))
+                        
+                        # Spawn at map boundary
+                        edge = self.rng.choice(["top", "bottom", "left", "right"])
+                        if edge == "top":      new_a.x, new_a.y = self.rng.uniform(10, self.W - 10), 2.0
+                        elif edge == "bottom": new_a.x, new_a.y = self.rng.uniform(10, self.W - 10), self.H - 2.0
+                        elif edge == "left":   new_a.x, new_a.y = 2.0, self.rng.uniform(10, self.H - 10)
+                        else:                  new_a.x, new_a.y = self.W - 2.0, self.rng.uniform(10, self.H - 10)
+                        
+                        new_a.home_x, new_a.home_y = new_a.x, new_a.y
+                        new_a.heading = self.rng.uniform(0, 2 * math.pi)
+                        new_a.migrating = False
+                        new_a.return_home_timer = 0
+                        new_a.attack_cooldown = 0
+                        
+                        if species == "elephant":
+                            new_a.herd_id = self.rng.choice([1, 2])
+                            self.herd_map[new_a.id] = new_a.herd_id
+                        elif species == "human":
+                            new_a.group_id = 0
+                            
+                        self._snap_agent_to_graph(new_a)
                         self.agent_id_counter += 1
-                        new_agents.append(new_h)
-                        agent.energy -= 20.0
-                        current_humans += 1
-
-                    elif agent.species == "elephant" and agent.energy > 70.0 and current_elephants < MAX_ELEPHANTS:
-                        new_e = make_agent(self.agent_id_counter, self.world, "elephant")
-                        new_e.x, new_e.y = agent.x + self.rng.uniform(-2, 2), agent.y + self.rng.uniform(-2, 2)
-                        new_e.home_x, new_e.home_y, new_e.herd_id = getattr(agent, "home_x", agent.x), getattr(agent, "home_y", agent.y), getattr(agent, "herd_id", 1)
-                        new_e.eco_mods = get_ecological_modifiers("elephant", self.topology_name)
-                        new_e.return_home_timer, new_e.attack_cooldown, new_e.migrating = 0, 0, False
-                        new_e.heading = self.rng.uniform(0, 2 * math.pi)
-                        new_e.weight = 3000.0
-                        self.herd_map[new_e.id] = new_e.herd_id
-                        self._snap_agent_to_graph(new_e)
-                        self.agent_id_counter += 1
-                        new_agents.append(new_e)
-                        agent.energy -= 30.0
-                        current_elephants += 1
-
+                        new_agents.append(new_a)
+                
                 self.agents.extend(new_agents)
 
             if self.tick % 50 == 0:
@@ -776,7 +783,17 @@ class MultiAgentSim:
                         agent.energy = min(100.0, agent.energy + 0.5) 
                     elif agent.species == "human" and not agent.migrating:
                         local_humans = sum(1 for h in self.agents if h.species == "human" and getattr(h, "alive", True) and math.hypot(h.x - agent.x, h.y - agent.y) < 15.0)
-                        if agent.mode not in ["FLEE", "WATER", "RETURN_HOME", "MIGRATE"]:
+                        
+                        if getattr(agent, "fear_level", 0.0) > 0.7 or agent.mode == "BUILD_FENCE":
+                            agent.mode = "BUILD_FENCE"
+                            for dy in range(-2, 3):
+                                for dx in range(-2, 3):
+                                    ny, nx = int(agent.y) + dy, int(agent.x) + dx
+                                    if 0 <= ny < self.H and 0 <= nx < self.W:
+                                        self.grid.layers[ny, nx, LAYER_OBSTACLE] = 1.0
+                                        self.grid.layers[ny, nx, LAYER_COVER] = 0.0
+
+                        if agent.mode not in ["FLEE", "WATER", "RETURN_HOME", "MIGRATE", "BUILD_FENCE"]:
                             self._build_settlement_and_crops(agent, y_int, x_int, dist_to_water, local_humans)
 
                 # UTILITIES
@@ -791,6 +808,11 @@ class MultiAgentSim:
                 u_flee   = u_hunt = u_defend = 0.0
                 u_return  = 8.0  if getattr(agent, "return_home_timer", 0) > 0 else 0.0
                 u_migrate = 10.0 if getattr(agent, "migrating", False)      else 0.0
+                
+                if getattr(self, "season", "wet") == "dry" and agent.species == "elephant" and dist_to_water > 30.0:
+                    u_migrate += 20.0
+                    agent.migrating = True
+                
                 threat_dx = threat_dy = hunt_dx = hunt_dy = 0.0
 
                 # Human-specific utilities
@@ -936,23 +958,30 @@ class MultiAgentSim:
                     need_val = float(100.0 - agent.energy)
                     torch = _torch_module()
                     state = torch.tensor([need_val, float(target_x - agent.x), float(target_y - agent.y), 100.0, 100.0], dtype=torch.float32)
-                    act = agent.trainer.choose_action(state)
+                    act_vec, log_prob, val = agent.trainer.choose_action(state)
                     
-                    spd = 1.0 if agent.species == "elephant" else 2.5
+                    heading = float(act_vec[0])
+                    velocity_scale = max(0.0, min(1.0, float(act_vec[1])))
+                    spd = (1.5 if agent.species == "elephant" else 2.5) * velocity_scale
                     
                     g_mag = math.hypot(target_x - agent.x, target_y - agent.y)
                     if g_mag > 0:
-                        dx += ((target_x - agent.x) / g_mag) * spd * 1.5
-                        dy += ((target_y - agent.y) / g_mag) * spd * 1.5
+                        dx += ((target_x - agent.x) / g_mag) * (1.0 if agent.species == "elephant" else 2.0)
+                        dy += ((target_y - agent.y) / g_mag) * (1.0 if agent.species == "elephant" else 2.0)
 
-                    if act == 0: dy -= spd
-                    elif act == 1: dy += spd
-                    elif act == 2: dx += spd
-                    elif act == 3: dx -= spd
+                    dx += math.cos(heading) * spd
+                    dy += math.sin(heading) * spd
 
                     if getattr(agent, "last_state", None) is not None:
-                        agent.trainer.learn(agent.last_state, agent.last_action, float(agent.rewards.get_reward(need_val, 100.0, bool(math.hypot(target_x - agent.x, target_y - agent.y) < 2.0))[0]), state, False)
-                    agent.last_state, agent.last_action = state, act
+                        rew = float(agent.rewards.get_reward(need_val, 100.0, bool(math.hypot(target_x - agent.x, target_y - agent.y) < 2.0))[0])
+                        agent.trainer.remember(agent.last_state, agent.last_action, agent.last_log_prob, rew, agent.last_value, False)
+                        if self.tick % 64 == 0:
+                            agent.trainer.learn()
+                            
+                    agent.last_state = state
+                    agent.last_action = act_vec
+                    agent.last_log_prob = log_prob
+                    agent.last_value = val
 
                 else:
                     if agent.mode == "FLEE": dx, dy = threat_dx, threat_dy
@@ -1011,10 +1040,22 @@ class MultiAgentSim:
                     agent.vx, agent.vy = (dx / mag) * spd, (dy / mag) * spd
 
                 # Free continuous movement: do not constrain wildlife to the OSM path graph.
-                if agent.x + agent.vx <= 2.0 or agent.x + agent.vx >= self.grid.W - 2.0: agent.heading = math.pi - agent.heading; agent.vx *= -1
-                if agent.y + agent.vy <= 2.0 or agent.y + agent.vy >= self.grid.H - 2.0: agent.heading = -agent.heading; agent.vy *= -1
-                agent.x = max(0.0, min(float(self.W) - 1.0, agent.x + agent.vx))
-                agent.y = max(0.0, min(float(self.H) - 1.0, agent.y + agent.vy))
+                new_x = agent.x + agent.vx
+                new_y = agent.y + agent.vy
+
+                # --- AGENTS LEAVING THE MAP ---
+                # If they cross the boundary, they leave the simulation instead of bouncing
+                if new_x <= 0 or new_x >= self.grid.W or new_y <= 0 or new_y >= self.grid.H:
+                    agent.alive = False
+                    self.mortality_events.append({
+                        "id": f"left_{self.tick}_{agent.id}", "tick": self.tick, 
+                        "type": "migration", "cx": agent.x, "cy": agent.y, 
+                        "radius": 15, "label": f"{agent.species.capitalize()} migrated off-map"
+                    })
+                    continue
+
+                agent.x = new_x
+                agent.y = new_y
 
                 # Human-Wildlife Conflict (HWC) Resolution
                 if agent.species in ["elephant", "leopard"] and getattr(agent, "alive", True):
@@ -1034,7 +1075,7 @@ class MultiAgentSim:
                                     push_strength = 3.0
                                     agent.vx = (push_dx / push_mag) * push_strength
                                     agent.vy = (push_dy / push_mag) * push_strength
-                                    # Apply pushback immediately
+                                    # Apply pushback immediately (respecting boundaries)
                                     agent.x = max(0.0, min(float(self.W) - 1.0, agent.x + agent.vx))
                                     agent.y = max(0.0, min(float(self.H) - 1.0, agent.y + agent.vy))
 
