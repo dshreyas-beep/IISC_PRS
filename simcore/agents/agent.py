@@ -40,6 +40,11 @@ class Agent:
         self.herd_id = None
         self.is_leader = False
         self.fear_level = 0.0
+        
+        # Telemetry
+        self.distance_traveled = 0.0
+        self.last_y = self.y
+        self.event_counts = {"bridge_crossings": 0}
 
         # ==========================================
         # 🛡️ CONFLICT RULES & TIMERS (UPDATED)

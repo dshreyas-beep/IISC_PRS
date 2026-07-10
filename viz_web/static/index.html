@@ -370,6 +370,28 @@
     .hud-tl { top: 10px; left: 12px; }
     .hud-br { bottom: 10px; right: 12px; text-align: right; }
 
+    .season-clock {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(26,26,24,0.9);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      z-index: 5;
+      pointer-events: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     /* ── MAP LEGEND ──────────────────────────────────────────────────────── */
     .map-legend {
       position: absolute;
@@ -664,27 +686,27 @@
         <div class="sp-card">
           <div class="em">🐘</div>
           <div class="sn">Elephant</div>
-          <input type="number" id="c_el" class="input-number" value="100" min="0" max="300"/>
+          <input type="number" id="c_el" class="input-number" value="0" min="0" max="300"/>
         </div>
         <div class="sp-card">
           <div class="em">🐆</div>
           <div class="sn">Leopard</div>
-          <input type="number" id="c_lp" class="input-number" value="18" min="0" max="80"/>
+          <input type="number" id="c_lp" class="input-number" value="0" min="0" max="80"/>
         </div>
         <div class="sp-card">
           <div class="em">🐻</div>
           <div class="sn">Sloth Bear</div>
-          <input type="number" id="c_sb" class="input-number" value="45" min="0" max="120"/>
+          <input type="number" id="c_sb" class="input-number" value="0" min="0" max="120"/>
         </div>
         <div class="sp-card">
           <div class="em">T</div>
           <div class="sn">Tiger</div>
-          <input type="number" id="c_tg" class="input-number" value="33" min="0" max="80"/>
+          <input type="number" id="c_tg" class="input-number" value="0" min="0" max="80"/>
         </div>
         <div class="sp-card">
           <div class="em">L</div>
           <div class="sn">Lion</div>
-          <input type="number" id="c_li" class="input-number" value="20" min="0" max="80"/>
+          <input type="number" id="c_li" class="input-number" value="0" min="0" max="80"/>
         </div>
         <div class="sp-card">
           <div class="em">👤</div>
@@ -741,6 +763,7 @@
           <option value="stressed">Stressed / Conflict</option>
         </select>
       </div>
+      <button class="btn-apply" id="exportCsvBtn" style="margin-top: 12px;">Export Data CSV</button>
     </div>
 
     <div class="ps">
@@ -748,8 +771,13 @@
     </div>
   </div>
 
-  <div class="canvas-wrap">
+  <div class="canvas-wrap" id="sim-container">
     <div class="canvas-scroller" id="cw">
+      <div class="season-clock" id="season-clock">
+        <span id="sc-year">YEAR 1</span> | 
+        <span id="sc-month">MTH 1</span> | 
+        <span id="sc-season" style="color: #4CAF50;">Winter</span>
+      </div>
       <canvas id="sim"></canvas>
       <canvas id="sim3d"></canvas>
       <div class="hud-tl" id="mapHud">WGS84 Bannerghatta BNP<br>Scale 1 : 50 000 / UTM Zone 43N</div>

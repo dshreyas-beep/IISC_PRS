@@ -149,7 +149,10 @@ class MultiAgentSim:
         if not os.path.exists(self.log_file):
             with open(self.log_file, mode='w', newline='') as f:
                 csv.writer(f).writerow([
-                    "Tick", "Agent_ID", "Species", "Weight_kg", "Energy", "Hydration", "Action_Mode", "Behavioral_Condition"
+                    "Tick", "Agent_ID", "Species", "Weight_kg", "Energy", 
+                    "Hydration", "Action_Mode", "Behavioral_Condition", 
+                    "Distance_Traveled", "Conflict_Reason", "Bridge_Crossings",
+                    "Season", "Vegetation_Multiplier", "Agriculture_Multiplier"
                 ])
 
     def _is_bannerghatta(self) -> bool:
@@ -326,15 +329,30 @@ class MultiAgentSim:
         self._clear_layer(LAYER_WATER, self.base_water_map)
         self._clear_layer(LAYER_CROP, self.base_crop_map)
 
+        total_months = self.tick // 200
+        current_month = (total_months % 12) + 1
+        if 3 <= current_month <= 5:
+            season_mult = 0.65  # Summer (-35%)
+            self.current_season_name = "Summer"
+        elif 6 <= current_month <= 9:
+            season_mult = 1.25  # Monsoon (+25%)
+            self.current_season_name = "Monsoon"
+        else:
+            season_mult = 1.00  # Winter (baseline)
+            self.current_season_name = "Winter"
+            
+        self.current_season_mult = season_mult
+
         if self._is_bannerghatta_osm():
             self.grid.layers[:, :, LAYER_WATER] = np.maximum(
                 self.grid.layers[:, :, LAYER_WATER],
-                self.static_water_map * 0.45
+                self.static_water_map * (0.2 if season_mult < 1.0 else 0.6)
             )
             self.grid.layers[:, :, LAYER_CROP] = np.maximum(
                 self.grid.layers[:, :, LAYER_CROP],
-                self.static_crop_map * 0.30
+                np.clip(self.static_crop_map * season_mult, 0.0, 1.0)
             )
+            self.grid.layers[:, :, LAYER_COVER] = np.clip(self.static_cover_map * season_mult, 0.0, 1.0)
             self.base_water_map[:, :] = self.static_water_map
             self.base_crop_map[:, :] = self.static_crop_map
 
@@ -537,11 +555,13 @@ class MultiAgentSim:
                 agent.weight = float(SPECIES_WEIGHTS_KG.get(species, 25.0))
 
                 if hasattr(agent, 'adaptation_period'): agent.adaptation_period = 200 + (self.agent_id_counter * 20)
-
                 if species == "elephant":
                     agent.herd_id  = 1 if self.agent_id_counter % 2 == 0 else 2
                     self.herd_map[agent.id] = agent.herd_id
-                    agent.x, agent.y = herd_centers[agent.herd_id][0] + self.rng.uniform(-5, 5), herd_centers[agent.herd_id][1] + self.rng.uniform(-5, 5)
+                    if self._is_bannerghatta_osm():
+                        agent.x, agent.y = self._sample_from_layer(LAYER_COVER, 0.25, avoid_settlement=True)
+                    else:
+                        agent.x, agent.y = self.rng.uniform(20, self.grid.W - 20), self.rng.uniform(20, self.grid.H - 20)
                     agent.home_x, agent.home_y = agent.x, agent.y
 
                     if not herd_leaders_assigned[agent.herd_id]:
@@ -551,17 +571,14 @@ class MultiAgentSim:
                 elif species == "human":
                     grp = self.rng.choice(human_groups)
                     agent.group_id = grp
-                    cx, cy = self.human_group_centers[grp]
-                    # Restrict human spawning to settlement or crop cells only, not deep forest
                     if self._is_bannerghatta_osm():
-                        # Try to sample from settlement first, then crop as fallback
                         try:
                             agent.x, agent.y = self._sample_from_layer(LAYER_SETTLEMENT, 0.15)
                         except:
                             agent.x, agent.y = self._sample_from_layer(LAYER_CROP, 0.15)
                     else:
-                        agent.x, agent.y = cx + self.rng.uniform(-5, 5), cy + self.rng.uniform(-5, 5)
-                    agent.home_x, agent.home_y = cx, cy
+                        agent.x, agent.y = self.rng.uniform(30, self.grid.W - 30), self.rng.uniform(30, self.grid.H - 30)
+                    agent.home_x, agent.home_y = agent.x, agent.y
 
                 elif species == "tiger" and self._is_bannerghatta_osm():
                     agent.x, agent.y = self._sample_safari_zone("tiger_safari")
@@ -916,6 +933,19 @@ class MultiAgentSim:
                 if (agent.species == "elephant" and not getattr(agent, "is_leader", False) and agent.mode == "WANDER"):
                     agent.mode = "FOLLOW"
 
+                # --- SEASONAL MIGRATION LOGIC ---
+                if agent.species in ["elephant", "leopard", "sloth_bear"]:
+                    total_months = self.tick // 200
+                    current_month = (total_months % 12) + 1
+                    if 3 <= current_month <= 5:
+                        # Summer: Force wildlife to migrate towards water sources
+                        if agent.mode in ["WANDER", "FOOD", "RETURN_HOME"] and agent.thirst > 30:
+                            agent.mode = "WATER"
+                    elif 6 <= current_month <= 9:
+                        # Monsoon: Disperse into forest cover
+                        if agent.mode == "WATER" and agent.thirst < 60:
+                            agent.mode = "WANDER"
+
                 dx = dy = 0.0
                 target_x = target_y = None
                 is_rl = (agent.species in ["elephant", "leopard", "sloth_bear"] and getattr(agent, "trainer", None) is not None)
@@ -1056,6 +1086,20 @@ class MultiAgentSim:
 
                 agent.x = new_x
                 agent.y = new_y
+                agent.distance_traveled += math.hypot(agent.vx, agent.vy)
+                
+                # Bridge crossing logic
+                if (agent.last_y < self.fence_y and agent.y >= self.fence_y) or (agent.last_y > self.fence_y and agent.y <= self.fence_y):
+                    if abs(agent.x - self.bridge_center[0]) <= (self.bridge_width / 2.0):
+                        if not hasattr(agent, "event_counts"):
+                            agent.event_counts = {"bridge_crossings": 0}
+                        agent.event_counts["bridge_crossings"] += 1
+                        self.mortality_events.append({
+                            "id": f"bridge_{self.tick}_{agent.id}", "tick": self.tick, 
+                            "type": "event", "cx": agent.x, "cy": agent.y, 
+                            "radius": 15, "label": f"{agent.species.capitalize()} used the Wildlife Bridge!"
+                        })
+                agent.last_y = agent.y
 
                 # Human-Wildlife Conflict (HWC) Resolution
                 if agent.species in ["elephant", "leopard"] and getattr(agent, "alive", True):
@@ -1100,15 +1144,29 @@ class MultiAgentSim:
                         elif agent.mode == "HUNT": condition = "Aggressive/Hunting"
                         elif agent.mode == "MIGRATE": condition = "Migrating"
                         
+                        conflict_reason = "None"
+                        if agent.mode == "DEFEND" and agent.energy < 40.0:
+                            conflict_reason = "Defending Crop Resource"
+                        elif agent.mode == "DEFEND":
+                            conflict_reason = "Territorial Defense"
+                        elif agent.mode == "HUNT":
+                            conflict_reason = "Predation"
+                            
                         writer.writerow([
                             self.tick, 
                             agent.id, 
                             agent.species, 
-                            round(getattr(agent, "weight", 0.0), 2), 
-                            round(agent.energy, 2), 
-                            round(100.0 - agent.thirst, 2), 
+                            round(agent.weight, 1), 
+                            round(agent.energy, 1), 
+                            round(agent.thirst, 1), 
                             agent.mode, 
-                            condition
+                            condition, 
+                            round(agent.distance_traveled, 2), 
+                            conflict_reason, 
+                            getattr(agent, "event_counts", {}).get("bridge_crossings", 0),
+                            getattr(self, "current_season_name", "Winter"),
+                            getattr(self, "current_season_mult", 1.0),
+                            getattr(self, "current_season_mult", 1.0)
                         ])
 
             if self.tick % 10 == 0:

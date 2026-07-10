@@ -11,6 +11,7 @@ let agents = [];
 let hotspots = [];
 let graph = null;
 let waterResources = [];
+let currentSeason = "summer";
 
 // Display toggles
 let showZones = true;
@@ -350,11 +351,23 @@ function drawBackgroundComposite() {
 
         if (cover > 0.05) {
           const t = Math.min(1, cover * 1.1);
-          r = r*(1-t) + 168*t; g = g*(1-t) + 188*t; b = b*(1-t) + 148*t;
+          if (currentSeason === "summer") {
+              r = r*(1-t) + 188*t; g = g*(1-t) + 168*t; b = b*(1-t) + 108*t;
+          } else if (currentSeason === "monsoon") {
+              r = r*(1-t) + 108*t; g = g*(1-t) + 198*t; b = b*(1-t) + 98*t;
+          } else {
+              r = r*(1-t) + 168*t; g = g*(1-t) + 188*t; b = b*(1-t) + 148*t;
+          }
         }
         if (crop > 0.05) {
           const t = Math.min(1, crop * 1.0);
-          r = r*(1-t) + 196*t; g = g*(1-t) + 210*t; b = b*(1-t) + 148*t;
+          if (currentSeason === "summer") {
+              r = r*(1-t) + 216*t; g = g*(1-t) + 190*t; b = b*(1-t) + 128*t;
+          } else if (currentSeason === "monsoon") {
+              r = r*(1-t) + 136*t; g = g*(1-t) + 220*t; b = b*(1-t) + 98*t;
+          } else {
+              r = r*(1-t) + 196*t; g = g*(1-t) + 210*t; b = b*(1-t) + 148*t;
+          }
         }
         if (sett > 0.05) {
           const t = Math.min(1, sett * 1.0);
@@ -620,10 +633,26 @@ function drawHotspots() {
   hoveredHotspot = null;
 
   for (const h of hotspots) {
-    if (h.type !== "mortality") continue;
+    if (h.type === "migration") continue;
 
     const x = sx(h.cx, h.cy), y = sy(h.cx, h.cy);
     const size = 5 * dpr;
+
+    if (h.type === "event") {
+      ctx.save();
+      ctx.fillStyle = "#2980b9";
+      ctx.globalAlpha = 0.6;
+      ctx.beginPath();
+      ctx.arc(x, y, size * 1.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "#ffffff";
+      ctx.font = `${Math.max(10, size * 1.5)}px Arial`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("🌉", x, y);
+      ctx.restore();
+      continue;
+    }
 
     ctx.save();
     ctx.strokeStyle = "#c0392b";
@@ -873,8 +902,30 @@ function updateTooltip() {
       positionTooltip();
   } 
   else if (hoveredHotspot) {
-      document.getElementById("tip-name").innerHTML = `<span>❌</span><span style="color:#c0392b;font-weight:600">Mortality Event</span>`;
-      document.getElementById("tip-rows").innerHTML = `<div class="tip-row"><span class="tip-key">Cause</span><span class="tip-val" style="color:${T.ink}">${hoveredHotspot.label}</span></div>`;
+      let title = "Conflict Hotspot";
+      let icon = "!";
+      let color = "#c0392b";
+      
+      if (hoveredHotspot.type === "mortality") {
+          if (hoveredHotspot.label.toLowerCase().includes("killed") || hoveredHotspot.label.toLowerCase().includes("assassinated")) {
+              title = "Lethal Conflict (Kill)";
+              icon = "☠️";
+          } else {
+              title = "Mortality Event";
+              icon = "✝️";
+          }
+      } else if (hoveredHotspot.type === "tension") {
+          title = "High Tension Area";
+          icon = "⚠️";
+          color = "#e67e22";
+      } else if (hoveredHotspot.type === "event") {
+          title = "Bridge Crossing";
+          icon = "🌉";
+          color = "#2980b9";
+      }
+
+      document.getElementById("tip-name").innerHTML = `<span>${icon}</span><span style="color:${color};font-weight:600">${title}</span>`;
+      document.getElementById("tip-rows").innerHTML = `<div class="tip-row"><span class="tip-key">Detail</span><span class="tip-val" style="color:${T.ink}">${hoveredHotspot.label}</span></div>`;
       positionTooltip();
   } else {
       tooltip.style.display = "none";
@@ -948,9 +999,33 @@ function updateSidebar(msg) {
   const speciesN = new Set(alive.map(a => a.species)).size;
   const mx  = Math.max(el, lp, tg, li, sb, hu, 1);
 
+  // --- CALENDAR LOGIC ---
+  const totalMonths = Math.floor(msg.t / 200);
+  const currentYear = Math.floor(totalMonths / 12) + 1;
+  const currentMonthNum = (totalMonths % 12) + 1;
+  
+  if (currentMonthNum >= 3 && currentMonthNum <= 5) currentSeason = "summer";
+  else if (currentMonthNum >= 6 && currentMonthNum <= 9) currentSeason = "monsoon";
+  else currentSeason = "winter";
+  
+  const seasonName = currentSeason.charAt(0).toUpperCase() + currentSeason.slice(1);
+  const timeStr = `YEAR ${currentYear} | MTH ${currentMonthNum} (${seasonName})`;
+
+  // Update big clock HUD
+  set("sc-year", `YEAR ${currentYear}`);
+  set("sc-month", `MTH ${currentMonthNum}`);
+  
+  const scSeasonEl = document.getElementById("sc-season");
+  if (scSeasonEl) {
+    scSeasonEl.innerText = seasonName;
+    if (currentSeason === "summer") scSeasonEl.style.color = "#FF9800"; // Orange
+    else if (currentSeason === "monsoon") scSeasonEl.style.color = "#2196F3"; // Blue
+    else scSeasonEl.style.color = "#4CAF50"; // Green
+  }
+
   set("pop-total", tot);
-  set("pop-step",  `STEP ${msg.t} · ${speciesN} SPECIES`);
-  set("hud-step",  String(msg.t).padStart(5, "0"));
+  set("pop-step",  `${timeStr} | ${speciesN} SPECIES`);
+  set("hud-step",  timeStr);
   set("fp",        `N = ${tot}`);
   set("fs",        `t = ${msg.t}`);
 
@@ -1110,6 +1185,21 @@ function bindUI() {
       if (!showProbe) probeTargetGrid = null;
   });
   document.getElementById("probeFilter")?.addEventListener("change", e => probeFilter = e.target.value);
+  
+  document.getElementById("exportCsvBtn")?.addEventListener("click", () => {
+    let csvStr = "Agent_ID,Species,Status,Mode,Energy,Hydration\n";
+    for (const a of agents) {
+      csvStr += `${a.id},${a.species},${a.alive ? "Alive" : "Dead"},${a.mode},${a.energy.toFixed(2)},${(100 - a.thirst).toFixed(2)}\n`;
+    }
+    const blob = new Blob([csvStr], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", `wildsim_agents_step_${simTime}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
 
   document.getElementById("useBaseline")?.addEventListener("change", e => {
     for (const id of ["c_el", "c_lp", "c_sb", "c_tg", "c_li", "c_hu"]) {
